@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Deploy application with Kubernetes POD by kubectl on Deploy first application on EKS</title>
+    <link>/5-deploytok8s/5.2-deployk8simperative/</link>
+    <description>Recent content in Deploy application with Kubernetes POD by kubectl on Deploy first application on EKS</description>
+    <generator>Hugo -- gohugo.io</generator><atom:link href="/5-deploytok8s/5.2-deployk8simperative/index.xml" rel="self" type="application/rss+xml" />
+  </channel>
+</rss>

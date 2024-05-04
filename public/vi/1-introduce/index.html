@@ -1,0 +1,1490 @@
+<!DOCTYPE html>
+<html lang="vi" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.96.0" />
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Giới thiệu :: Triển khai ứng dụng đầu tiên trên EKS</title>
+
+    
+    <link href="/css/nucleus.css?1714749797" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1714749797" rel="stylesheet">
+    <link href="/css/hybrid.css?1714749797" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1714749797" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1714749797" rel="stylesheet">
+    <link href="/css/auto-complete.css?1714749797" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1714749797" rel="stylesheet">
+    <link href="/css/theme.css?1714749797" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1714749797" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1714749797" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1714749797"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/vi/1-introduce/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1714749797"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1714749797"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/vi";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1714749797"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-introduce/" title="Giới thiệu" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/vi/1-introduce/">
+           <b> 1. </b> Giới thiệu
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/" title="Các bước chuẩn bị" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prerequiste/">
+           <b> 2. </b> Các bước chuẩn bị
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/2.1-createcloud9workspace/" title="Tạo môi trường làm việc Cloud9" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prerequiste/2.1-createcloud9workspace/">
+           <b> 2.1 </b> Tạo môi trường làm việc Cloud9
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/2.2-modifyiamrole/" title="Cấu hình IAM role" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prerequiste/2.2-modifyiamrole/">
+           <b> 2.2 </b> Cấu hình IAM role
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/2.3-installation/" title="Cài đặt ứng dụng" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prerequiste/2.3-installation/">
+           <b> 2.3 </b> Cài đặt ứng dụng
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/2.4-createbasicapp/" title="Tạo ứng dụng đơn giản" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prerequiste/2.4-createbasicapp/">
+           <b> 2.4 </b> Tạo ứng dụng đơn giản
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-deployappwithdocker/" title="Triển khai ứng dụng với Docker" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-deployappwithdocker/">
+           <b> 3. </b> Triển khai ứng dụng với Docker
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-deployappwithdocker/3.1-installdocker/" title="Cài đặt Docker" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-deployappwithdocker/3.1-installdocker/">
+           <b> 3.1 </b> Cài đặt Docker
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-deployappwithdocker/3.2-createdockerfile/" title="Tạo Dockerfile" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-deployappwithdocker/3.2-createdockerfile/">
+           <b> 3.2 </b> Tạo Dockerfile
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-deployappwithdocker/3.3-createdockerimage/" title="Tạo container image" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-deployappwithdocker/3.3-createdockerimage/">
+           <b> 3.3 </b> Tạo container image
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/3-deployappwithdocker/3.4-deployapp/" title="Triển khai ứng dụng" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/3-deployappwithdocker/3.4-deployapp/">
+           <b> 3.4 </b> Triển khai ứng dụng
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-interactpcr/" title="Thao tác với Public Container Registry" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-interactpcr/">
+           <b> 4. </b> Thao tác với Public Container Registry
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-interactpcr/4.1-createdockerhubacc/" title="Tạo tài khoản DockerHub" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-interactpcr/4.1-createdockerhubacc/">
+           <b> 4.1 </b> Tạo tài khoản DockerHub
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-interactpcr/4.2-pushimagetodockerhub/" title="Đẩy image lên DockerHub" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-interactpcr/4.2-pushimagetodockerhub/">
+           <b> 4.2 </b> Đẩy image lên DockerHub
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/4-interactpcr/4.3-pullimagefromdockerhub/" title="Kéo image về từ DockerHub" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/4-interactpcr/4.3-pullimagefromdockerhub/">
+           <b> 4.3 </b> Kéo image về từ DockerHub
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-deploytok8s/" title="Triển khai ứng dụng với K8S" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-deploytok8s/">
+           <b> 5. </b> Triển khai ứng dụng với K8S
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-deploytok8s/5.1-installk8s/" title="Cài đặt công cụ Kubernetes" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-deploytok8s/5.1-installk8s/">
+           <b> 5.1 </b> Cài đặt công cụ Kubernetes
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-deploytok8s/5.2-deployk8simperative/" title="Triển khai ứng dụng với Kubernetes POD bằng kubectl" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-deploytok8s/5.2-deployk8simperative/">
+           <b> 5.2 </b> Triển khai ứng dụng với Kubernetes POD bằng kubectl
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/5-deploytok8s/5.3-deployk8sdeclarative/" title="Triển khai ứng dụng với Kubernetes POD bằng YAML manifest" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/5-deploytok8s/5.3-deployk8sdeclarative/">
+           <b> 5.2 </b> Triển khai ứng dụng với Kubernetes POD bằng YAML manifest
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-deploytoeks/" title="Triển khai ứng dụng lên EKS Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-deploytoeks/">
+           <b> 6. </b> Triển khai ứng dụng lên EKS Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-deploytoeks/6.1-installeks/" title="Cài đặt Amazon EKS" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-deploytoeks/6.1-installeks/">
+           <b> 6.1 </b> Cài đặt Amazon EKS
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/6-deploytoeks/6.2-eksmanagednodegroup/" title="Triển khai ứng dụng lên EKS Cluster Managed Nodegroup" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/6-deploytoeks/6.2-eksmanagednodegroup/">
+           <b> 6.2 </b> Triển khai ứng dụng lên EKS Cluster Managed Nodegroup
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/7-cleanup/" title="Dọn dẹp tài nguyên" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/7-cleanup/">
+           <b> 7. </b> Dọn dẹp tài nguyên
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"><i class='fab fa-facebook'></i> AWS Study Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/1-introduce/">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="/vi/1-introduce/" selected>Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>30-01-2022</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i> <a href="https://www.linkedin.com/in/sutrinh/"  style="color:orange">Sử Trịnh  </a> <br>
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+                <a href="https://www.linkedin.com/in/hiepnguyendt"  style="color:orange">Thanh Hiệp </a>
+               
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            <a href='/vi/'>Triển khai ứng dụng đầu tiên trên Amazon EKS</a> > Giới thiệu
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li><a href="#docker">Docker</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#kubernetes">Kubernetes</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+    <li><a href="#amazon-eks">Amazon EKS</a>
+      <ul>
+        <li></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Giới thiệu
+            </h1>
+          
+
+        
+
+
+
+	<h2 id="docker">Docker</h2>
+<h4 id="tổng-quan">Tổng quan</h4>
+<p>Docker là một mã nguồn mở cho việc phát triển, di chuyển và triển khai ứng dụng. Docker cho phép bạn tách ứng dụng khỏi cơ sở hạ tầng để bạn có thể phân phối phần mềm nhanh chóng. Với Docker, bạn có thể quản lý hạ tầng như cách bạn quản lý ứng dụng. Bằng cách tận dụng các phương pháp của Docker để vận chuyển, kiểm thử và triển khai mã code, bạn có thể làm giảm đang kể độ trễ giữa việc viết mã code và triển khai nó trên môi trường sản phẩm.</p>
+<h4 id="kiến-trúc-docker">Kiến trúc Docker</h4>
+<p><strong>The Docker daemon</strong>: Docker daemon lắng nghe các yêu cầu Docker API và quản lý các đối tượng Docker như image, container, network và volume. Một daemon cũng giao tiếp với các daemon khác để quản lý các dịch vụ Docker.</p>
+<p><strong>The Docker client</strong>: Docker client là cách chính để nhiều người dùng Docker tương tác với Docker. Khi bạn sử dụng dòng lệnh, client gửi những dòng lệnh đó đến Docker daemon để thực hiện chúng. Dòng lệnh Docker sử dụng Docker API. Docker client có thể giao tiếp với một hoặc nhiều Docker daemon.</p>
+<p><strong>Docker Desktop</strong>: Docker Desktop là một ứng dụng dễ dàng cài đặt cho môi trường Mac, Windows hoặc Linux that enables you to build and share containerized applications and microservices. mà cho phép bạn xây dựng và chia sẻ các ứng dụng và microservice được đóng gói trong container.</p>
+<p><strong>Docker registries</strong>: Docker registry chứa Docker images. Docker Hub là một công cộng mà mọi người có thể dùng, và Docker mặc định tìm kiếm images trên Docker Hub.</p>
+<p><strong>Images</strong>: Một image là một bản mẫu chỉ đọc với các hướng dẫn cho việc tạo một Docker container.</p>
+<p><strong>Containers</strong>: Container là một phiên bản có thể triển khai của image. Bạn có thể tạo, khởi chạy, dừng, di chuyển hoặc xóa một container bằng cách sử dụng Docker API hoặc CLI.</p>
+<p><img src="../../images/1.introduction/1.1.dockerarch.png?pc=90pt" alt="Kiến trúc Docker"></p>
+
+<div class="notices info" ><p>Truy cập <a href="https://docs.docker.com/">Docker docs</a> để thêm thông tin.</p>
+</div>
+
+<h2 id="kubernetes">Kubernetes</h2>
+<h4 id="tổng-quan-1">Tổng quan</h4>
+<p>Kubernetes là một nền tảng nguồn mở, có thể mở rộng, di động để quản lý khối lượng công việc và dịch vụ được đóng gói, tạo điều kiện thuận lợi cho cả cấu hình khai báo và tự động hóa. Nó có một hệ sinh thái rộng lớn và phát triển nhanh chóng. Các dịch vụ, hỗ trợ và công cụ của Kubernetes có sẵn rộng rãi.</p>
+<h4 id="kiến-trúc-cụm-kubernetes">Kiến trúc cụm Kubernetes</h4>
+<p><strong>Cluster</strong>: Kubernetes Cluster bao gồm một tập hợp các worker node, được gọi là node, chạy các ứng dụng được đóng gói. Mỗi cụm có ít nhất một worker node.</p>
+<p><strong>Control Plane</strong>: Control Plane quản lý các worker node và Pod trong Cluster. Trong môi trường sản phẩm, Control Plane thường hoạt động trên nhiều máy chủ và một cluster thường có nhiều node để đảm bảo tính sẵn sàng và khả nằng chịu lỗi cao.</p>
+<p><strong>Worker Nodes</strong>: Work Node chứa các Pods là các thành phần của khối lượng công việc ứng dụng.</p>
+<p><strong>kube-api-server</strong>: The API server là một thành phần của Kubernetes control plane mà hiển thị Kubernetes API. Máy chủ API là giao diện cho Kubernetes control plane.</p>
+<p><strong>etcd</strong>: Bộ lưu trữ key-value nhất quán và khả dụng cao được sử dụng như kho lưu trữ hổ trợ Kubernetes cho tất cả dữ liệu của Cluster.
+<strong>Scheduler</strong>: Là thành phần của Control plane giám sát các Pod mới tạo chưa được chỉ định nào node nào, và sẽ chọn một node phù hợp để chúng triển khai trên.</p>
+<p><strong>Controller Manager</strong>: Là thành phần của Control plane chạy các quy trình quản lý. Một cách hợp lý, mỗi bộ điều khiển sẽ là một quy trình riêng biệt nhưng để giảm sự phức tạp, chúng thường được biên dịch thành một tện nhị phân duy nhất để chạy trên một quy trình duy nhất. Có nhiều loại bộ điều khiển khác nhau. Một số ví dụ như:</p>
+<ul>
+<li>Node controller: Chịu trách nhiệm nhận diện và phản hổi khi node không hoạt động.</li>
+<li>Job controller: Theo dõi các đối tượng Công việc đại diện cho các nhiệm vụ một lần, sau đó tạo các Pod để chạy các nhiệm vụ đó cho đến khi hoàn thành</li>
+<li>EndpointSlice controller: Điền vào các đối tượng EndpointSlice (để cung cấp liên kết giữa Service và Pod)</li>
+<li>ServiceAccount controller: Tạo ServiceAccounts mặc định cho một namespace mới.</li>
+</ul>
+<p><em>Trên đây không phải là danh sách đầy đủ.</em></p>
+<p><strong>kubelet</strong>: Một agent chạy trên mỗi node trong cluster. It makes sure that containers are running in a Pod. Nó đảm bảo rằng các container đang chạy trong Pod.</p>
+<p><strong>kube-proxy</strong>: kube-proxy là một proxy mạng chạy trên mỗi node trong cluster của bạn, triển khai một phần khái niệm Service Kubernetes.</p>
+<p><strong>pod</strong>: là một phiên bản duy nhất của một ứng dụng và đối tượng nhỏ nhất mà bạn có thể tạo trong Kubernetes.</p>
+<p><strong>Container Runtime Interface (CRI)</strong>: Một thành phần cơ bản hỗ trợ Kubernetes chạy các container một cách hiệu quả. Nó chịu trách nhiệm quản lý việc thực thi và vòng đời của các container trong môi trường Kubernetes.</p>
+<p><strong>cloud-control-manager</strong>: Một thành phần Kubernetes control plane nhúng bộ điều khiển dành riêng cho đám mây. Trình quản lý bộ điều khiển đám mây cho phép bạn liên kết cụm của mình với API của nhà cung cấp đám mây và tách các thành phần tương tác với nền tảng đám mây đó khỏi các thành phần chỉ tương tác với cụm của bạn.</p>
+<p><img src="../../images/1.introduction/1.2.k8sarch.png?pc=90pt" alt="Kiến trúc cụm Kubernetes"></p>
+
+<div class="notices info" ><p>Truy cập <a href="https://kubernetes.io/docs">Kubernetes docs</a> để thêm thông tin.</p>
+</div>
+
+<h2 id="amazon-eks">Amazon EKS</h2>
+<h4 id="tổng-quan-2">Tổng quan</h4>
+<p>Amazon Elastic Kubernetes Service (Amazon EKS) là một dịch vụ được quản lý giúp loại bỏ sự cần thiết của việc cài đặt, vận hành và duy trì Kubernetes control plane của bạn trên Amazon Web Services (AWS).</p>
+<h4 id="kiến-trúc-amazon-eks">Kiến trúc Amazon EKS</h4>
+<p>Amazon EKS đảm bảo mỗi cluster đều có Kubernetes control plane riêng biệt. Thiết kế này giữ cho cơ sở hạ tầng của mỗi cụm tách biệt, không trùng lập giữa các Cluster hoặc tài khoản AWS. Việc thiết lập bao gồm:</p>
+<ul>
+<li><strong>Các thành phần phân tán</strong>: Control plane chứa ít nhất 2 phiên bản máy chủ API (API server) và 3 phiên bản etcd giữa 3 AWS Availability Zone trong một AWS Region.</li>
+<li><strong>Tối ưu hiệu suất</strong>: Amazon EKS giám sát chủ động và điều chỉnh các phiên bản Control plane để duy trì hiệu năng cao nhất.</li>
+<li><strong>Khả năng phục hồi</strong>: Nếu một phiên bản Control plane không hoạt động, Amazon EKS nhanh chóng thay thế nó, sử dụng Availability Zone khác nếu cần thiết.</li>
+<li><strong>Thời gian hoạt động ổn định</strong>: Bằng việc triển khai các Cluster giữa các Availability Zone, đạt được tính khả dụng của điểm cuối máy chủ API (SLA) đáng tin cậy.</li>
+</ul>
+<p>Amazon EKS sử dụng Amazon Virtual Private Cloud (Amazon VPC) để giới hạn lưu lượng giữa các thành phần Control plane bên trong một Cluster. Các thành phần Cluster không thể nhìn thấy hoặc nhận giap tiếp từ các Cluster hoặc tài khoản AWS khác, ngoại trừ khi được xác thực bởi quy tắc Kubernetes role-based access control (RBAC).</p>
+<p>Ngoài Control plane, một Amazon EKS cluster còn có một tập các worker machines gọi là node. Việc lựa chọn lại Amazon EKS cluster node thích hợp là rất quan trọng để đáp ứng các yêu cầu cụ thể của bạn và tối ưu hóa việc sử dụng tài nguyên. Amazon EKS cung cấp các loại node chính sau:</p>
+<ul>
+<li><strong>AWS Fargate</strong>: Fargate là công cụ điện toán serverless dành cho vùng chứa giúp loại bỏ nhu cầu quản lý các phiên bản cơ bản. Với Fargate, bạn chỉ định nhu cầu tài nguyên của ứng dụng và AWS sẽ tự động cung cấp, thay đổi quy mô và duy trì cơ sở hạ tầng. Tùy chọn này lý tưởng cho những người dùng ưu tiên tính dễ sử dụng và muốn tập trung vào phát triển và triển khai ứng dụng thay vì quản lý cơ sở hạ tầng.</li>
+<li><strong>Karpenter</strong>: Karpenter là một công cụ tự động chia tỷ lệ Kubernetes Cluster linh hoạt, hiệu suất cao, giúp cải thiện tính khả dụng của ứng dụng và hiệu quả của cụm. Karpenter khởi chạy các tài nguyên điện toán có kích thước phù hợp để đáp ứng nhu cầu tải ứng dụng thay đổi. Tùy chọn này có thể cung cấp tài nguyên điện toán kịp thời đáp ứng yêu cầu khối lượng công việc của bạn.</li>
+<li><strong>Managed node groups</strong>: Managed node groups là sự kết hợp giữa tự động hóa và tùy chỉnh để quản lý tập hợp phiên bản Amazon EC2 trong Amazon EKS cluster. AWS đảm nhiệm các nhiệm vụ như vá lỗi, cập nhật và thay đổi quy mô node, giúp đơn giản hóa các khía cạnh vận hành. Song song đó, các đối số kubelet tùy chỉnh được hỗ trợ, mở ra khả năng cho các chính sách quản lý bộ nhớ và CPU nâng cao. ơn nữa, chúng còn tăng cường bảo mật thông qua vai trò AWS Identity and Access Management (IAM) cho các tài khoản dịch vụ, đồng thời hạn chế nhu cầu về các quyền riêng biệt cho mỗi cluster.</li>
+<li><strong>Self-managed nodes</strong>: Self-managed nodes cung cấp toàn quyền kiểm soát các phiên bản Amazon EC2 của bạn trong Amazon EKS cluster. Bạn chịu trách nhiệm quản lý, mở rộng quy mô và duy trì các node, mang lại cho bạn toàn quyền kiểm soát cơ sở hạ tầng cơ bản. Tùy chọn này phù hợp với những người dùng cần kiểm soát và tùy chỉnh chi tiết các node của họ và sẵn sàng đầu tư thời gian vào việc quản lý và duy trì cơ sở hạ tầng của họ.
+<img src="../../images/1.introduction/1.3.eksarch.png?pc=90pt" alt="Kiến trúc Amazon EKS"></li>
+</ul>
+
+<div class="notices info" ><p>Truy cập <a href="https://docs.aws.amazon.com/eks/latest/userguide/">Amazon EKS docs</a> để thêm thông tin.</p>
+</div>
+
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/vi/" title="Triển khai ứng dụng đầu tiên trên Amazon EKS"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/vi/2-prerequiste/" title="Các bước chuẩn bị" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1714749797"></script>
+    <script src="/js/perfect-scrollbar.min.js?1714749797"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1714749797"></script>
+    <script src="/js/jquery.sticky.js?1714749797"></script>
+    <script src="/js/featherlight.min.js?1714749797"></script>
+    <script src="/js/highlight.pack.js?1714749797"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1714749797"></script>
+    <script src="/js/learn.js?1714749797"></script>
+    <script src="/js/hugo-learn.js?1714749797"></script>
+
+    <link href="/mermaid/mermaid.css?1714749797" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1714749797"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>
