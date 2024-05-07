@@ -5,7 +5,7 @@ weight : 3
 chapter : false
 pre : " <b> 2.3 </b> "
 ---
-In this workshop, we will create a basic application with NodeJS and Express framework. So we need to check the version of them and install if they are not existing.
+In this workshop, we will install necessary tools: awscli, kubectl and eksctl.
 ### Upgrade awscli
 1. Copy and paste the command below into Terminal of Cloud9 Workspace to upgrade awscli.
 ```
@@ -14,17 +14,39 @@ sudo pip install --upgrade awscli && hash -r
 ![Installation](../../images/2.prerequisites/2.3.installation/2.3.1.installation.png?pc=60pt)
 
 
-### Check version of npm and node
-1. Copy and Paste the command below into Terminal of Cloud9 Workspace to check version of npm and node.
+### Install kubectl
+1. At **Cloud9 Terminal**, execute those command to install **kubectl**.
++ Update the instance packages.
+```bash
+sudo yum update
 ```
-npm version
++ Install kubectl.
+```bash
+curl -LO https://dl.k8s.io/release/v1.30.0/bin/linux/amd64/kubectl
+sudo install -o root -g root -m 0755 kubectl /usr/local/bin/kubectl
 ```
-![Installation](../../images/2.prerequisites/2.3.installation/2.3.2.installation.png?pc=60pt)
-At you see, npm and node had been installed. Now we will install Express framework by using npm.
+2. Check version of **kubectl**.
+```
+kubectl version --client
+```
 
-### Install Express framework
-1. Copy and Paste the command below into Terminal of Cloud9 Workspace to install Express framework.
+![Install K8S](../../images/2.prerequisites/2.3.installation/2.3.2.installation.png?pc=60pt)
+
+### Install eksctl
+
+1. At Cloud9 terminal, execute those command to install Amazon EKS.
++ Download and extract the latest release of eksctl with the following command.
 ```
-npm install express --save
+curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 ```
-![Installation](../../images/2.prerequisites/2.3.installation/2.3.3.installation.png?pc=60pt)
+
++ Move the extracted binary to /usr/local/bin.
+```
+sudo mv /tmp/eksctl /usr/local/bin
+```
+
++ Test that your installation was successful with the following command
+```
+eksctl version
+```
+![Install Amazon EKS](../../images/2.prerequisites/2.3.installation/2.3.3.installation.png?pc=60pt)

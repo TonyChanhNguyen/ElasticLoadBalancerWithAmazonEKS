@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Installation :: Deploy first application on EKS</title>
+    <title>Installation :: Storage in Amazon EKS</title>
 
     
-    <link href="/css/nucleus.css?1714749797" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1714749797" rel="stylesheet">
-    <link href="/css/hybrid.css?1714749797" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1714749797" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1714749797" rel="stylesheet">
-    <link href="/css/auto-complete.css?1714749797" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1714749797" rel="stylesheet">
-    <link href="/css/theme.css?1714749797" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1714749797" rel="stylesheet">
+    <link href="/css/nucleus.css?1715058270" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1715058270" rel="stylesheet">
+    <link href="/css/hybrid.css?1715058270" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1715058270" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1715058270" rel="stylesheet">
+    <link href="/css/auto-complete.css?1715058270" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1715058270" rel="stylesheet">
+    <link href="/css/theme.css?1715058270" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1715058270" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1714749797" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1715058270" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1714749797"></script>
+    <script src="/js/jquery-3.3.1.min.js?1715058270"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1714749797"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1714749797"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1715058270"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1715058270"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1714749797"></script>
+<script type="text/javascript" src="/js/search.js?1715058270"></script>
 
     
   </div>
@@ -223,13 +223,13 @@
  
   
     
-    <li data-nav-id="/2-prerequiste/2.4-createbasicapp/" title="Create basic application" class="dd-item 
+    <li data-nav-id="/2-prerequiste/2.4-createekscluster/" title="Create Amazon EKS Cluster" class="dd-item 
         
         
         
         ">
-      <a href="/2-prerequiste/2.4-createbasicapp/">
-           <b> 2.4 </b> Create basic application
+      <a href="/2-prerequiste/2.4-createekscluster/">
+           <b> 2.4 </b> Create Amazon EKS Cluster
           
             <i class="fas fa-check read-icon"></i>
           
@@ -258,13 +258,13 @@
  
   
     
-    <li data-nav-id="/3-deployappwithdocker/" title="Deploy application with Docker" class="dd-item 
+    <li data-nav-id="/3-eksstoragewithebs/" title="Amazon EKS Storage with Amazon EBS" class="dd-item 
         
         
         
         ">
-      <a href="/3-deployappwithdocker/">
-           <b> 3. </b> Deploy application with Docker
+      <a href="/3-eksstoragewithebs/">
+           <b> 3. </b> Amazon EKS Storage with Amazon EBS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -289,13 +289,13 @@
  
   
     
-    <li data-nav-id="/3-deployappwithdocker/3.1-installdocker/" title="Install Docker" class="dd-item 
+    <li data-nav-id="/3-eksstoragewithebs/3.1-installcsidriver/" title="Install Amazon EBS CSI Driver" class="dd-item 
         
         
         
         ">
-      <a href="/3-deployappwithdocker/3.1-installdocker/">
-           <b> 3.1 </b> Install Docker
+      <a href="/3-eksstoragewithebs/3.1-installcsidriver/">
+           <b> 3.1 </b> Install Amazon EBS CSI Driver
           
             <i class="fas fa-check read-icon"></i>
           
@@ -317,13 +317,13 @@
  
   
     
-    <li data-nav-id="/3-deployappwithdocker/3.2-createdockerfile/" title="Create Dockerfile" class="dd-item 
+    <li data-nav-id="/3-eksstoragewithebs/3.2-staticprovision/" title="Static Provisioning" class="dd-item 
         
         
         
         ">
-      <a href="/3-deployappwithdocker/3.2-createdockerfile/">
-           <b> 3.2 </b> Create Dockerfile
+      <a href="/3-eksstoragewithebs/3.2-staticprovision/">
+           <b> 3.2 </b> Static Provisioning
           
             <i class="fas fa-check read-icon"></i>
           
@@ -345,41 +345,13 @@
  
   
     
-    <li data-nav-id="/3-deployappwithdocker/3.3-createdockerimage/" title="Create container image" class="dd-item 
+    <li data-nav-id="/3-eksstoragewithebs/3.3-dynamicprovision/" title="Dynamic Provisioning" class="dd-item 
         
         
         
         ">
-      <a href="/3-deployappwithdocker/3.3-createdockerimage/">
-           <b> 3.3 </b> Create container image
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/3-deployappwithdocker/3.4-deployapp/" title="Deploy application" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/3-deployappwithdocker/3.4-deployapp/">
-           <b> 3.4 </b> Deploy application
+      <a href="/3-eksstoragewithebs/3.3-dynamicprovision/">
+           <b> 3.3 </b> Dynamic Provisioning
           
             <i class="fas fa-check read-icon"></i>
           
@@ -394,370 +366,6 @@
           
         
         </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/4-interactpcr/" title="Interact with Public Container Registry" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/4-interactpcr/">
-           <b> 4. </b> Interact with Public Container Registry
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/4-interactpcr/4.1-createdockerhubacc/" title="Create DockerHub account" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/4-interactpcr/4.1-createdockerhubacc/">
-           <b> 4.1 </b> Create DockerHub account
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/4-interactpcr/4.2-pushimagetodockerhub/" title="Push image to DockerHub" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/4-interactpcr/4.2-pushimagetodockerhub/">
-           <b> 4.2 </b> Push image to DockerHub
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/4-interactpcr/4.3-pullimagefromdockerhub/" title="Pull image from DockerHub" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/4-interactpcr/4.3-pullimagefromdockerhub/">
-           <b> 4.3 </b> Pull image from DockerHub
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/5-deploytok8s/" title="Deploy application with K8S" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/5-deploytok8s/">
-           <b> 5. </b> Deploy application with K8S
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/5-deploytok8s/5.1-installk8s/" title="Install Kubernetes tools" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/5-deploytok8s/5.1-installk8s/">
-           <b> 5.1 </b> Install Kubernetes tools
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/5-deploytok8s/5.2-deployk8simperative/" title="Deploy application with Kubernetes POD by kubectl" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/5-deploytok8s/5.2-deployk8simperative/">
-           <b> 5.2 </b> Deploy application with Kubernetes POD by kubectl
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/5-deploytok8s/5.3-deployk8sdeclarative/" title="Deploy application with Kubernetes POD by YAML manifest file" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/5-deploytok8s/5.3-deployk8sdeclarative/">
-           <b> 5.2 </b> Deploy application with Kubernetes POD by YAML manifest file
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/6-deploytoeks/" title="Deploy application to EKS Cluster" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/6-deploytoeks/">
-           <b> 6. </b> Deploy application to EKS Cluster
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/6-deploytoeks/6.1-installeks/" title="Install Amazon EKS" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/6-deploytoeks/6.1-installeks/">
-           <b> 6.1 </b> Install Amazon EKS
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/6-deploytoeks/6.2-eksmanagednodegroup/" title="Deploy application to EKS Cluster Managed Nodegroup" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/6-deploytoeks/6.2-eksmanagednodegroup/">
-           <b> 6.2 </b> Deploy application to EKS Cluster Managed Nodegroup
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/7-cleanup/" title="Cleanup resources" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/7-cleanup/">
-           <b> 7. </b> Cleanup resources
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
               
     </li>
   
@@ -905,7 +513,7 @@
             
           
           
-            <a href='/'>Deploy first application on Amazon EKS</a> > <a href='/2-prerequiste/'>Prerequisites</a> > Installation
+            <a href='/'>Storage in Amazon EKS</a> > <a href='/2-prerequiste/'>Prerequisites</a> > Installation
           
         
           
@@ -923,8 +531,8 @@
     <li>
       <ul>
         <li><a href="#upgrade-awscli">Upgrade awscli</a></li>
-        <li><a href="#check-version-of-npm-and-node">Check version of npm and node</a></li>
-        <li><a href="#install-express-framework">Install Express framework</a></li>
+        <li><a href="#install-kubectl">Install kubectl</a></li>
+        <li><a href="#install-eksctl">Install eksctl</a></li>
       </ul>
     </li>
   </ul>
@@ -952,26 +560,48 @@
 
 
 
-	<p>In this workshop, we will create a basic application with NodeJS and Express framework. So we need to check the version of them and install if they are not existing.</p>
+	<p>In this workshop, we will install necessary tools: awscli, kubectl and eksctl.</p>
 <h3 id="upgrade-awscli">Upgrade awscli</h3>
 <ol>
 <li>Copy and paste the command below into Terminal of Cloud9 Workspace to upgrade awscli.</li>
 </ol>
 <pre tabindex="0"><code>sudo pip install --upgrade awscli &amp;&amp; hash -r
 </code></pre><p><img src="../../images/2.prerequisites/2.3.installation/2.3.1.installation.png?pc=60pt" alt="Installation"></p>
-<h3 id="check-version-of-npm-and-node">Check version of npm and node</h3>
+<h3 id="install-kubectl">Install kubectl</h3>
 <ol>
-<li>Copy and Paste the command below into Terminal of Cloud9 Workspace to check version of npm and node.</li>
+<li>At <strong>Cloud9 Terminal</strong>, execute those command to install <strong>kubectl</strong>.</li>
 </ol>
-<pre tabindex="0"><code>npm version
-</code></pre><p><img src="../../images/2.prerequisites/2.3.installation/2.3.2.installation.png?pc=60pt" alt="Installation">
-At you see, npm and node had been installed. Now we will install Express framework by using npm.</p>
-<h3 id="install-express-framework">Install Express framework</h3>
+<ul>
+<li>Update the instance packages.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sudo yum update
+</span></span></code></pre></div><ul>
+<li>Install kubectl.</li>
+</ul>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>curl -LO https://dl.k8s.io/release/v1.30.0/bin/linux/amd64/kubectl
+</span></span><span style="display:flex;"><span>sudo install -o root -g root -m <span style="color:#ae81ff">0755</span> kubectl /usr/local/bin/kubectl
+</span></span></code></pre></div><ol start="2">
+<li>Check version of <strong>kubectl</strong>.</li>
+</ol>
+<pre tabindex="0"><code>kubectl version --client
+</code></pre><p><img src="../../images/2.prerequisites/2.3.installation/2.3.2.installation.png?pc=60pt" alt="Install K8S"></p>
+<h3 id="install-eksctl">Install eksctl</h3>
 <ol>
-<li>Copy and Paste the command below into Terminal of Cloud9 Workspace to install Express framework.</li>
+<li>At Cloud9 terminal, execute those command to install Amazon EKS.</li>
 </ol>
-<pre tabindex="0"><code>npm install express --save
-</code></pre><p><img src="../../images/2.prerequisites/2.3.installation/2.3.3.installation.png?pc=60pt" alt="Installation"></p>
+<ul>
+<li>Download and extract the latest release of eksctl with the following command.</li>
+</ul>
+<pre tabindex="0"><code>curl --silent --location &#34;https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz&#34; | tar xz -C /tmp
+</code></pre><ul>
+<li>Move the extracted binary to /usr/local/bin.</li>
+</ul>
+<pre tabindex="0"><code>sudo mv /tmp/eksctl /usr/local/bin
+</code></pre><ul>
+<li>Test that your installation was successful with the following command</li>
+</ul>
+<pre tabindex="0"><code>eksctl version
+</code></pre><p><img src="../../images/2.prerequisites/2.3.installation/2.3.3.installation.png?pc=60pt" alt="Install Amazon EKS"></p>
 
 
 
@@ -1179,220 +809,6 @@ At you see, npm and node had been installed. Now we will install Express framewo
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
             
         
                     
@@ -1408,7 +824,7 @@ At you see, npm and node had been installed. Now we will install Express framewo
 			<a class="nav nav-prev" href="/2-prerequiste/2.2-modifyiamrole/" title="Modify IAM role"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/2-prerequiste/2.4-createbasicapp/" title="Create basic application" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/2-prerequiste/2.4-createekscluster/" title="Create Amazon EKS Cluster" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1418,19 +834,19 @@ At you see, npm and node had been installed. Now we will install Express framewo
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1714749797"></script>
-    <script src="/js/perfect-scrollbar.min.js?1714749797"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1714749797"></script>
-    <script src="/js/jquery.sticky.js?1714749797"></script>
-    <script src="/js/featherlight.min.js?1714749797"></script>
-    <script src="/js/highlight.pack.js?1714749797"></script>
+    <script src="/js/clipboard.min.js?1715058270"></script>
+    <script src="/js/perfect-scrollbar.min.js?1715058270"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1715058270"></script>
+    <script src="/js/jquery.sticky.js?1715058270"></script>
+    <script src="/js/featherlight.min.js?1715058270"></script>
+    <script src="/js/highlight.pack.js?1715058270"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1714749797"></script>
-    <script src="/js/learn.js?1714749797"></script>
-    <script src="/js/hugo-learn.js?1714749797"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1715058270"></script>
+    <script src="/js/learn.js?1715058270"></script>
+    <script src="/js/hugo-learn.js?1715058270"></script>
 
-    <link href="/mermaid/mermaid.css?1714749797" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1714749797"></script>
+    <link href="/mermaid/mermaid.css?1715058270" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1715058270"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Introduction :: Deploy first application on EKS</title>
+    <title>Introduction :: Storage in Amazon EKS</title>
 
     
-    <link href="/css/nucleus.css?1714749797" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1714749797" rel="stylesheet">
-    <link href="/css/hybrid.css?1714749797" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1714749797" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1714749797" rel="stylesheet">
-    <link href="/css/auto-complete.css?1714749797" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1714749797" rel="stylesheet">
-    <link href="/css/theme.css?1714749797" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1714749797" rel="stylesheet">
+    <link href="/css/nucleus.css?1715058270" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1715058270" rel="stylesheet">
+    <link href="/css/hybrid.css?1715058270" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1715058270" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1715058270" rel="stylesheet">
+    <link href="/css/auto-complete.css?1715058270" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1715058270" rel="stylesheet">
+    <link href="/css/theme.css?1715058270" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1715058270" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1714749797" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1715058270" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1714749797"></script>
+    <script src="/js/jquery-3.3.1.min.js?1715058270"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1714749797"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1714749797"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1715058270"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1715058270"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1714749797"></script>
+<script type="text/javascript" src="/js/search.js?1715058270"></script>
 
     
   </div>
@@ -223,13 +223,13 @@
  
   
     
-    <li data-nav-id="/2-prerequiste/2.4-createbasicapp/" title="Create basic application" class="dd-item 
+    <li data-nav-id="/2-prerequiste/2.4-createekscluster/" title="Create Amazon EKS Cluster" class="dd-item 
         
         
         
         ">
-      <a href="/2-prerequiste/2.4-createbasicapp/">
-           <b> 2.4 </b> Create basic application
+      <a href="/2-prerequiste/2.4-createekscluster/">
+           <b> 2.4 </b> Create Amazon EKS Cluster
           
             <i class="fas fa-check read-icon"></i>
           
@@ -258,13 +258,13 @@
  
   
     
-    <li data-nav-id="/3-deployappwithdocker/" title="Deploy application with Docker" class="dd-item 
+    <li data-nav-id="/3-eksstoragewithebs/" title="Amazon EKS Storage with Amazon EBS" class="dd-item 
         
         
         
         ">
-      <a href="/3-deployappwithdocker/">
-           <b> 3. </b> Deploy application with Docker
+      <a href="/3-eksstoragewithebs/">
+           <b> 3. </b> Amazon EKS Storage with Amazon EBS
           
             <i class="fas fa-check read-icon"></i>
           
@@ -289,13 +289,13 @@
  
   
     
-    <li data-nav-id="/3-deployappwithdocker/3.1-installdocker/" title="Install Docker" class="dd-item 
+    <li data-nav-id="/3-eksstoragewithebs/3.1-installcsidriver/" title="Install Amazon EBS CSI Driver" class="dd-item 
         
         
         
         ">
-      <a href="/3-deployappwithdocker/3.1-installdocker/">
-           <b> 3.1 </b> Install Docker
+      <a href="/3-eksstoragewithebs/3.1-installcsidriver/">
+           <b> 3.1 </b> Install Amazon EBS CSI Driver
           
             <i class="fas fa-check read-icon"></i>
           
@@ -317,13 +317,13 @@
  
   
     
-    <li data-nav-id="/3-deployappwithdocker/3.2-createdockerfile/" title="Create Dockerfile" class="dd-item 
+    <li data-nav-id="/3-eksstoragewithebs/3.2-staticprovision/" title="Static Provisioning" class="dd-item 
         
         
         
         ">
-      <a href="/3-deployappwithdocker/3.2-createdockerfile/">
-           <b> 3.2 </b> Create Dockerfile
+      <a href="/3-eksstoragewithebs/3.2-staticprovision/">
+           <b> 3.2 </b> Static Provisioning
           
             <i class="fas fa-check read-icon"></i>
           
@@ -345,41 +345,13 @@
  
   
     
-    <li data-nav-id="/3-deployappwithdocker/3.3-createdockerimage/" title="Create container image" class="dd-item 
+    <li data-nav-id="/3-eksstoragewithebs/3.3-dynamicprovision/" title="Dynamic Provisioning" class="dd-item 
         
         
         
         ">
-      <a href="/3-deployappwithdocker/3.3-createdockerimage/">
-           <b> 3.3 </b> Create container image
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/3-deployappwithdocker/3.4-deployapp/" title="Deploy application" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/3-deployappwithdocker/3.4-deployapp/">
-           <b> 3.4 </b> Deploy application
+      <a href="/3-eksstoragewithebs/3.3-dynamicprovision/">
+           <b> 3.3 </b> Dynamic Provisioning
           
             <i class="fas fa-check read-icon"></i>
           
@@ -394,370 +366,6 @@
           
         
         </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/4-interactpcr/" title="Interact with Public Container Registry" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/4-interactpcr/">
-           <b> 4. </b> Interact with Public Container Registry
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/4-interactpcr/4.1-createdockerhubacc/" title="Create DockerHub account" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/4-interactpcr/4.1-createdockerhubacc/">
-           <b> 4.1 </b> Create DockerHub account
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/4-interactpcr/4.2-pushimagetodockerhub/" title="Push image to DockerHub" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/4-interactpcr/4.2-pushimagetodockerhub/">
-           <b> 4.2 </b> Push image to DockerHub
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/4-interactpcr/4.3-pullimagefromdockerhub/" title="Pull image from DockerHub" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/4-interactpcr/4.3-pullimagefromdockerhub/">
-           <b> 4.3 </b> Pull image from DockerHub
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/5-deploytok8s/" title="Deploy application with K8S" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/5-deploytok8s/">
-           <b> 5. </b> Deploy application with K8S
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/5-deploytok8s/5.1-installk8s/" title="Install Kubernetes tools" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/5-deploytok8s/5.1-installk8s/">
-           <b> 5.1 </b> Install Kubernetes tools
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/5-deploytok8s/5.2-deployk8simperative/" title="Deploy application with Kubernetes POD by kubectl" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/5-deploytok8s/5.2-deployk8simperative/">
-           <b> 5.2 </b> Deploy application with Kubernetes POD by kubectl
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/5-deploytok8s/5.3-deployk8sdeclarative/" title="Deploy application with Kubernetes POD by YAML manifest file" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/5-deploytok8s/5.3-deployk8sdeclarative/">
-           <b> 5.2 </b> Deploy application with Kubernetes POD by YAML manifest file
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/6-deploytoeks/" title="Deploy application to EKS Cluster" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/6-deploytoeks/">
-           <b> 6. </b> Deploy application to EKS Cluster
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/6-deploytoeks/6.1-installeks/" title="Install Amazon EKS" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/6-deploytoeks/6.1-installeks/">
-           <b> 6.1 </b> Install Amazon EKS
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/6-deploytoeks/6.2-eksmanagednodegroup/" title="Deploy application to EKS Cluster Managed Nodegroup" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/6-deploytoeks/6.2-eksmanagednodegroup/">
-           <b> 6.2 </b> Deploy application to EKS Cluster Managed Nodegroup
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/7-cleanup/" title="Cleanup resources" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/7-cleanup/">
-           <b> 7. </b> Cleanup resources
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
               
     </li>
   
@@ -901,7 +509,7 @@
             
           
           
-            <a href='/'>Deploy first application on Amazon EKS</a> > Introduction
+            <a href='/'>Storage in Amazon EKS</a> > Introduction
           
         
           
@@ -912,25 +520,7 @@
                 
                     <div class="progress">
     <div class="wrapper">
-<nav id="TableOfContents">
-  <ul>
-    <li><a href="#docker">Docker</a>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
-    <li><a href="#kubernetes">Kubernetes</a>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
-    <li><a href="#amazon-eks">Amazon EKS</a>
-      <ul>
-        <li></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+<nav id="TableOfContents"></nav>
     </div>
 </div>
 
@@ -954,73 +544,23 @@
 
 
 
-	<h2 id="docker">Docker</h2>
-<h4 id="overview">Overview</h4>
-<p>Docker is an open platform for developing, shipping, and running applications. Docker enables you to separate your applications from your infrastructure so you can deliver software quickly. With Docker, you can manage your infrastructure in the same ways you manage your applications. By taking advantage of Docker&rsquo;s methodologies for shipping, testing, and deploying code, you can significantly reduce the delay between writing code and running it in production.</p>
-<h4 id="docker-architecture">Docker architecture</h4>
-<p><strong>The Docker daemon</strong>: The Docker daemon listens for Docker API requests and manages Docker objects such as images, containers, networks, and volumes. A daemon can also communicate with other daemons to manage Docker services.</p>
-<p><strong>The Docker client</strong>: The Docker client is the primary way that many Docker users interact with Docker. When you use commands, the client sends these commands to Docker daemon, which carries them out. The docker command uses the Docker API. The Docker client can communicate with more than one daemon.</p>
-<p><strong>Docker Desktop</strong>: Docker Desktop is an easy-to-install application for your Mac, Windows or Linux environment that enables you to build and share containerized applications and microservices.</p>
-<p><strong>Docker registries</strong>: A Docker registry stores Docker images. Docker Hub is a public registry that anyone can use, and Docker looks for images on Docker Hub by default.</p>
-<p><strong>Images</strong>: An image is a read-only template with instructions for creating a Docker container.</p>
-<p><strong>Containers</strong>: A container is a runnable instance of an image. You can create, start, stop, move, or delete a container using the Docker API or CLI.</p>
-<p><img src="../images/1.introduction/1.1.dockerarch.png?pc=90pt" alt="Docker Architecture"></p>
-
-<div class="notices info" ><p>Access to <a href="https://docs.docker.com/">Docker docs</a> for more detail.</p>
-</div>
-
-<h2 id="kubernetes">Kubernetes</h2>
-<h4 id="overview-1">Overview</h4>
-<p>Kubernetes is a portable, extensible, open source platform for managing containerized workloads and services, that facilitates both declarative configuration and automation. It has a large, rapidly growing ecosystem. Kubernetes services, support, and tools are widely available.</p>
-<h4 id="kubernetes-cluster-architecture">Kubernetes cluster architecture</h4>
-<p><strong>Cluster</strong>: A Kubernetes cluster consists of a set of worker machines, called nodes, that run containerized applications. Every cluster has at least one worker node.</p>
-<p><strong>Control Plane</strong>: The control plane manages the worker nodes and the Pods in the cluster. In production environments, the control plane usually runs across multiple computers and a cluster usually runs multiple nodes, providing fault-tolerance and high availability.</p>
-<p><strong>Worker Nodes</strong>: The worker node(s) host the Pods that are the components of the application workload</p>
-<p><strong>kube-api-server</strong>: The API server is a component of the Kubernetes control plane that exposes the Kubernetes API. The API server is the front end for the Kubernetes control plane.</p>
-<p><strong>etcd</strong>: Consistent and highly-available key value store used as Kubernetes backing store for all cluster data.</p>
-<p><strong>Scheduler</strong>: Control plane component that watches for newly created Pods with no assigned node, and selects a node for them to run on.</p>
-<p><strong>Controller Manager</strong>: Control plane component that runs controller processes. Logically, each controller is a separate process, but to reduce complexity, they are all compiled into a single binary and run in a single process. There are many different types of controllers. Some examples of them are:</p>
+	<p>Before we dive into the implementation, below is a summary of the two AWS storage services we&rsquo;ll utilize and integrate with EKS:</p>
 <ul>
-<li>Node controller: Responsible for noticing and responding when nodes go down.</li>
-<li>Job controller: Watches for Job objects that represent one-off tasks, then creates Pods to run those tasks to completion.</li>
-<li>EndpointSlice controller: Populates EndpointSlice objects (to provide a link between Services and Pods).</li>
-<li>ServiceAccount controller: Create default ServiceAccounts for new namespaces.</li>
+<li><a href="https://aws.amazon.com/ebs/">Amazon Elastic Block Store</a> (supports EC2 only): a block storage service that provides direct access from EC2 instances and containers to a dedicated storage volume designed for both throughput and transaction-intensive workloads at any scale.</li>
+<li><a href="https://aws.amazon.com/efs/">Amazon Elastic File System</a> (supports Fargate and EC2): a fully managed, scalable, and elastic file system well suited for big data analytics, web serving and content management, application development and testing, media and entertainment workflows, database backups, and container storage. EFS stores your data redundantly across multiple Availability Zones (AZ) and offers low latency access from Kubernetes pods irrespective of the AZ in which they are running.</li>
+<li><a href="https://aws.amazon.com/fsx/netapp-ontap/">Amazon FSx for NetApp ONTAP</a> (supports EC2 only): Fully managed shared storage built on NetApp’s popular ONTAP file system. FSx for NetApp ONTAP stores your data redundantly across multiple Availability Zones (AZ) and offers low latency access from Kubernetes pods irrespective of the AZ in which they are running.</li>
+<li><a href="https://aws.amazon.com/fsx/lustre/">FSx for Lustre</a> (supports EC2 only): a fully managed, high-performance file system optimized for workloads such as machine learning, high-performance computing, video processing, financial modeling, electronic design automation, and analytics. With FSx for Lustre, you can quickly create a high-performance file system linked to your S3 data repository and transparently access S3 objects as files.</li>
+<li><a href="https://aws.amazon.com/s3">Amazon Simple Storage Service</a> (supports EC2 only): is an object storage service offering industry-leading scalability, data availability, security, and performance. Customers of all sizes and industries can store and protect any amount of data for virtually any use case, such as data lakes, cloud-native applications, and mobile apps. With cost-effective storage classes and easy-to-use management features, you can optimize costs, organize data, and configure fine-tuned access controls to meet specific business, organizational, and compliance requirements.</li>
 </ul>
-<p><em>The above is not an exhaustive list.</em></p>
-<p><strong>kubelet</strong>: An agent that runs on each node in the cluster. It makes sure that containers are running in a Pod.</p>
-<p><strong>kube-proxy</strong>: kube-proxy is a network proxy that runs on each node in your cluster, implementing part of the Kubernetes Service concept.</p>
-<p><strong>pod</strong>: is a single instance of an application and the smallest object, that you can create in Kubernetes.</p>
-<p><strong>Container Runtime Interface (CRI)</strong>: A fundamental component that empowers Kubernetes to run containers effectively. It is responsible for managing the execution and lifecycle of containers within the Kubernetes environment.</p>
-<p><strong>cloud-control-manager</strong>: A Kubernetes control plane component that embeds cloud-specific control logic. The cloud controller manager lets you link your cluster into your cloud provider&rsquo;s API, and separates out the components that interact with that cloud platform from components that only interact with your cluster.</p>
-<p><img src="../images/1.introduction/1.2.k8sarch.png?pc=90pt" alt="Kubernetes Cluster Architecture"></p>
-
-<div class="notices info" ><p>Access to <a href="https://kubernetes.io/docs">Kubernetes docs</a> for more detail.</p>
-</div>
-
-<h2 id="amazon-eks">Amazon EKS</h2>
-<h4 id="overview-2">Overview</h4>
-<p>Amazon Elastic Kubernetes Service (Amazon EKS) is a managed service that eliminates the need to install, operate, and maintain your own Kubernetes control plane on Amazon Web Services (AWS)</p>
-<h4 id="amazon-eks-architecture">Amazon EKS architecture</h4>
-<p>Amazon EKS ensures every cluster has its own unique Kubernetes control plane. This design keeps each cluster&rsquo;s infrastructure separate, with no overlaps between clusters or AWS accounts. The setup includes:</p>
+<p>It&rsquo;s also very important to be familiar with some concepts about <a href="https://kubernetes.io/docs/concepts/storage/">Kubernetes Storage</a>:</p>
 <ul>
-<li><strong>Distributed components</strong>: The control plane positions at least two API server instances and three etcd instances across three AWS Availability Zones within an AWS Region.</li>
-<li><strong>Optimal performance</strong>: Amazon EKS actively monitors and adjusts control plane instances to maintain peak performance.</li>
-<li><strong>Resilience</strong>: If a control plane instance falters, Amazon EKS quickly replaces it, using different Availability Zone if needed.</li>
-<li><strong>Consistent uptime</strong>: By running clusters across multiple Availability Zones, a reliable API server endpoint availability Service Level Agreement (SLA) is achieved.</li>
+<li><a href="">Volumes</a>: On-disk files in a container are ephemeral, which presents some problems for non-trivial applications when running in containers. One problem is the loss of files when a container crashes. The kubelet restarts the container but with a clean state. A second problem occurs when sharing files between containers running together in a Pod. The Kubernetes volume abstraction solves both of these problems. Familiarity with Pods is suggested.</li>
+<li><a href="">Ephemeral Volumes</a> are designed for these use cases. Because volumes follow the Pod&rsquo;s lifetime and get created and deleted along with the Pod, Pods can be stopped and restarted without being limited to where some persistent volume is available.</li>
+<li><a href="">Persistent Volumes (PV)</a> is a piece of storage in a cluster that has been provisioned by an administrator or dynamically provisioned using Storage Classes. It&rsquo;s a resource in the cluster just like a node is a cluster resource. PVs are volume plugins like Volumes, but have a lifecycle independent of any individual Pod that uses the PV. This API object captures the details of the implementation of the storage, be that NFS, iSCSI, or a cloud-provider-specific storage system.</li>
+<li><a href="">Persistent Volume Claim (PVC)</a> is a request for storage by a user. It&rsquo;s similar to a Pod. Pods consume node resources and PVCs consume PV resources. Pods can request specific levels of resources (CPU and Memory). Claims can request specific size and access modes (e.g., they can be mounted ReadWriteOnce, ReadOnlyMany or ReadWriteMany, see AccessModes</li>
+<li><a href="">Storage Classes</a> provides a way for administrators to describe the &ldquo;classes&rdquo; of storage they offer. Different classes might map to quality-of-service levels, or to backup policies, or to arbitrary policies determined by cluster administrators. Kubernetes itself is unopinionated about what classes represent. This concept is sometimes called &ldquo;profiles&rdquo; in other storage systems.</li>
+<li><a href="">Dynamic Volume</a> Provisioning allows storage volumes to be created on-demand. Without dynamic provisioning, cluster administrators have to manually make calls to their cloud or storage provider to create new storage volumes, and then create PersistentVolume objects to represent them in Kubernetes. The dynamic provisioning feature eliminates the need for cluster administrators to pre-provision storage. Instead, it automatically provisions storage when it is requested by users.</li>
 </ul>
-<p>Amazon EKS uses Amazon Virtual Private Cloud (Amazon VPC) to limit traffic between control plane components within a single cluster. Cluster components can&rsquo;t view or receive communication from other clusters or AWS accounts, except when authorized by Kubernetes role-based access control (RBAC) policies.</p>
-<p>In addition to the control plane, an Amazon EKS cluster has a set of worker machines called nodes. Selecting the appropriate Amazon EKS cluster node type is crucial for meeting your specific requirements and optimizing resource utilization. Amazon EKS offers the following primary node types:</p>
-<ul>
-<li><strong>AWS Fargate</strong>: Fargate is a serverless compute engine for containers that eliminates the need to manage the underlying instances. With Fargate, you specify your application&rsquo;s resource needs, and AWS automatically provisions, scales, and maintains the infrastructure. This option is ideal for users who prioritize ease-of-use and want to concentrate on application development and deployment rather than managing infrastructure.</li>
-<li><strong>Karpenter</strong>: Karpenter is a flexible, high-performance Kubernetes cluster autoscaler that helps improve application availability and cluster efficiency. Karpenter launches right-sized compute resources in response to changing application load. This option can provision just-in-time compute resources that meet the requirements of your workload.</li>
-<li><strong>Managed node groups</strong>: Managed node groups are a blend of automation and customization for managing a collection of Amazon EC2 instances within an Amazon EKS cluster. AWS takes care of tasks like patching, updating, and scaling nodes, easing operational aspects. In parallel, custom kubelet arguments are supported, opening up possibilities for advanced CPU and memory management policies. Moreover, they enhance security via AWS Identity and Access Management (IAM) roles for service accounts, while curbing the need for separate permissions per cluster.</li>
-<li><strong>Self-managed nodes</strong>: Self-managed nodes offer full control over your Amazon EC2 instances within an Amazon EKS cluster. You are in charge of managing, scaling, and maintaining the nodes, giving you total control over the underlying infrastructure. This option is suitable for users who need granular control and customization of their nodes and are ready to invest time in managing and maintaining their infrastructure.
-<img src="../images/1.introduction/1.3.eksarch.png?pc=90pt" alt="Amazon EKS Architecture"></li>
-</ul>
-
-<div class="notices info" ><p>Access to <a href="https://docs.aws.amazon.com/eks/latest/userguide/">Amazon EKS docs</a> for more detail.</p>
-</div>
-
 
 
 
@@ -1221,220 +761,6 @@
             
         
                     
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
             
         
                     
@@ -1447,7 +773,7 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/" title="Deploy first application on Amazon EKS"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/" title="Storage in Amazon EKS"> <i class="fa fa-chevron-left"></i></a>
 		
 		
 			<a class="nav nav-next" href="/2-prerequiste/" title="Prerequisites" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
@@ -1460,19 +786,19 @@
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1714749797"></script>
-    <script src="/js/perfect-scrollbar.min.js?1714749797"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1714749797"></script>
-    <script src="/js/jquery.sticky.js?1714749797"></script>
-    <script src="/js/featherlight.min.js?1714749797"></script>
-    <script src="/js/highlight.pack.js?1714749797"></script>
+    <script src="/js/clipboard.min.js?1715058270"></script>
+    <script src="/js/perfect-scrollbar.min.js?1715058270"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1715058270"></script>
+    <script src="/js/jquery.sticky.js?1715058270"></script>
+    <script src="/js/featherlight.min.js?1715058270"></script>
+    <script src="/js/highlight.pack.js?1715058270"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1714749797"></script>
-    <script src="/js/learn.js?1714749797"></script>
-    <script src="/js/hugo-learn.js?1714749797"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1715058270"></script>
+    <script src="/js/learn.js?1715058270"></script>
+    <script src="/js/hugo-learn.js?1715058270"></script>
 
-    <link href="/mermaid/mermaid.css?1714749797" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1714749797"></script>
+    <link href="/mermaid/mermaid.css?1715058270" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1715058270"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

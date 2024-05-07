@@ -9,24 +9,24 @@
 
     <link rel="icon" href="/images/favicon.png" type="image/png">
 
-    <title>Create basic application :: Deploy first application on EKS</title>
+    <title>Create basic application :: Storage in Amazon EKS</title>
 
     
-    <link href="/css/nucleus.css?1714749797" rel="stylesheet">
-    <link href="/css/fontawesome-all.min.css?1714749797" rel="stylesheet">
-    <link href="/css/hybrid.css?1714749797" rel="stylesheet">
-    <link href="/css/featherlight.min.css?1714749797" rel="stylesheet">
-    <link href="/css/perfect-scrollbar.min.css?1714749797" rel="stylesheet">
-    <link href="/css/auto-complete.css?1714749797" rel="stylesheet">
-    <link href="/css/atom-one-dark-reasonable.css?1714749797" rel="stylesheet">
-    <link href="/css/theme.css?1714749797" rel="stylesheet">
-    <link href="/css/hugo-theme.css?1714749797" rel="stylesheet">
+    <link href="/css/nucleus.css?1714889568" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1714889568" rel="stylesheet">
+    <link href="/css/hybrid.css?1714889568" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1714889568" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1714889568" rel="stylesheet">
+    <link href="/css/auto-complete.css?1714889568" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1714889568" rel="stylesheet">
+    <link href="/css/theme.css?1714889568" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1714889568" rel="stylesheet">
     
-    <link href="/css/theme-workshop.css?1714749797" rel="stylesheet">
+    <link href="/css/theme-workshop.css?1714889568" rel="stylesheet">
     
     
 
-    <script src="/js/jquery-3.3.1.min.js?1714749797"></script>
+    <script src="/js/jquery-3.3.1.min.js?1714889568"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/js/lunr.min.js?1714749797"></script>
-<script type="text/javascript" src="/js/auto-complete.js?1714749797"></script>
+<script type="text/javascript" src="/js/lunr.min.js?1714889568"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1714889568"></script>
 <script type="text/javascript">
     
         var baseurl = "";
     
 </script>
-<script type="text/javascript" src="/js/search.js?1714749797"></script>
+<script type="text/javascript" src="/js/search.js?1714889568"></script>
 
     
   </div>
@@ -250,520 +250,6 @@
  
 
           
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/3-deployappwithdocker/" title="Deploy application with Docker" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/3-deployappwithdocker/">
-           <b> 3. </b> Deploy application with Docker
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/3-deployappwithdocker/3.1-installdocker/" title="Install Docker" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/3-deployappwithdocker/3.1-installdocker/">
-           <b> 3.1 </b> Install Docker
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/3-deployappwithdocker/3.2-createdockerfile/" title="Create Dockerfile" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/3-deployappwithdocker/3.2-createdockerfile/">
-           <b> 3.2 </b> Create Dockerfile
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/3-deployappwithdocker/3.3-createdockerimage/" title="Create container image" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/3-deployappwithdocker/3.3-createdockerimage/">
-           <b> 3.3 </b> Create container image
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/3-deployappwithdocker/3.4-deployapp/" title="Deploy application" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/3-deployappwithdocker/3.4-deployapp/">
-           <b> 3.4 </b> Deploy application
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/4-interactpcr/" title="Interact with Public Container Registry" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/4-interactpcr/">
-           <b> 4. </b> Interact with Public Container Registry
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/4-interactpcr/4.1-createdockerhubacc/" title="Create DockerHub account" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/4-interactpcr/4.1-createdockerhubacc/">
-           <b> 4.1 </b> Create DockerHub account
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/4-interactpcr/4.2-pushimagetodockerhub/" title="Push image to DockerHub" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/4-interactpcr/4.2-pushimagetodockerhub/">
-           <b> 4.2 </b> Push image to DockerHub
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/4-interactpcr/4.3-pullimagefromdockerhub/" title="Pull image from DockerHub" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/4-interactpcr/4.3-pullimagefromdockerhub/">
-           <b> 4.3 </b> Pull image from DockerHub
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/5-deploytok8s/" title="Deploy application with K8S" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/5-deploytok8s/">
-           <b> 5. </b> Deploy application with K8S
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/5-deploytok8s/5.1-installk8s/" title="Install Kubernetes tools" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/5-deploytok8s/5.1-installk8s/">
-           <b> 5.1 </b> Install Kubernetes tools
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/5-deploytok8s/5.2-deployk8simperative/" title="Deploy application with Kubernetes POD by kubectl" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/5-deploytok8s/5.2-deployk8simperative/">
-           <b> 5.2 </b> Deploy application with Kubernetes POD by kubectl
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/5-deploytok8s/5.3-deployk8sdeclarative/" title="Deploy application with Kubernetes POD by YAML manifest file" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/5-deploytok8s/5.3-deployk8sdeclarative/">
-           <b> 5.2 </b> Deploy application with Kubernetes POD by YAML manifest file
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/6-deploytoeks/" title="Deploy application to EKS Cluster" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/6-deploytoeks/">
-           <b> 6. </b> Deploy application to EKS Cluster
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-      
-        <ul>
-          
-          
-            
-          
-          
-          
-        
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/6-deploytoeks/6.1-installeks/" title="Install Amazon EKS" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/6-deploytoeks/6.1-installeks/">
-           <b> 6.1 </b> Install Amazon EKS
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-            
-            
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/6-deploytoeks/6.2-eksmanagednodegroup/" title="Deploy application to EKS Cluster Managed Nodegroup" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/6-deploytoeks/6.2-eksmanagednodegroup/">
-           <b> 6.2 </b> Deploy application to EKS Cluster Managed Nodegroup
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-            
-          
-        
-        </ul>
-              
-    </li>
-  
- 
-
-          
-          
-
-
-
-
- 
-  
-    
-    <li data-nav-id="/7-cleanup/" title="Cleanup resources" class="dd-item 
-        
-        
-        
-        ">
-      <a href="/7-cleanup/">
-           <b> 7. </b> Cleanup resources
-          
-            <i class="fas fa-check read-icon"></i>
-          
-      </a>
-      
-              
-    </li>
-  
- 
-
-          
          
     </ul>
 
@@ -905,7 +391,7 @@
             
           
           
-            <a href='/'>Deploy first application on Amazon EKS</a> > <a href='/2-prerequiste/'>Prerequisites</a> > Create basic application
+            <a href='/'>Storage in Amazon EKS</a> > <a href='/2-prerequiste/'>Prerequisites</a> > Create basic application
           
         
           
@@ -1003,14 +489,22 @@ cd app
 <li>See, your application ran on port 8080.
 <img src="../../images/2.prerequisites/2.4.createapp/2.4.4.createapp.png?pc=60pt" alt="Create basic application"></li>
 </ol>
-<p>Now, we need to access to application to see the result.
-12. Click on <strong>Share</strong>.
-13. Copy the <strong>IP Address</strong> at <strong>Application</strong> field.
+<p>Now, we need to access to application to see the result.</p>
+<ol start="12">
+<li>
+<p>Click on <strong>Share</strong>.</p>
+</li>
+<li>
+<p>Copy the <strong>IP Address</strong> at <strong>Application</strong> field.
 <img src="../../images/2.prerequisites/2.4.createapp/2.4.5.createapp.png?pc=60pt" alt="Create basic application"></p>
-<ol start="14">
-<li>Access to the application with URL <code>http://&lt;REPLACE_YOUR_IP&gt;:8080</code>.</li>
-<li>Opps, the application can not be accessed.
-<img src="../../images/2.prerequisites/2.4.createapp/2.4.6.createapp.png?pc=60pt" alt="Create basic application"></li>
+</li>
+<li>
+<p>Access to the application with URL <code>http://&lt;REPLACE_YOUR_IP&gt;:8080</code>.</p>
+</li>
+<li>
+<p>Opps, the application can not be accessed.
+<img src="../../images/2.prerequisites/2.4.createapp/2.4.6.createapp.png?pc=60pt" alt="Create basic application"></p>
+</li>
 </ol>
 <p>The reason is the security group of workspace instance is still not opened for port 8080.</p>
 <ol start="16">
@@ -1029,12 +523,14 @@ cd app
 <img src="../../images/2.prerequisites/2.4.createapp/2.4.8.createapp.png?pc=60pt" alt="Create basic application"></p>
 </li>
 </ol>
-<p>At <strong>Inbound rules</strong> interface, you can see there are no rules were defined.
-20. Click on <strong>Edit inbound rules</strong>.
-<img src="../../images/2.prerequisites/2.4.createapp/2.4.9.createapp.png?pc=60pt" alt="Create basic application">
-21. At <strong>Edit inbound rules</strong> interface, click on <strong>Add rule</strong>.
-<img src="../../images/2.prerequisites/2.4.createapp/2.4.10.createapp.png?pc=60pt" alt="Create basic application">
-22. Define the rule with parameter:</p>
+<p>At <strong>Inbound rules</strong> interface, you can see there are no rules were defined.</p>
+<ol start="20">
+<li>Click on <strong>Edit inbound rules</strong>.
+<img src="../../images/2.prerequisites/2.4.createapp/2.4.9.createapp.png?pc=60pt" alt="Create basic application"></li>
+<li>At <strong>Edit inbound rules</strong> interface, click on <strong>Add rule</strong>.
+<img src="../../images/2.prerequisites/2.4.createapp/2.4.10.createapp.png?pc=60pt" alt="Create basic application"></li>
+<li>Define the rule with parameter:</li>
+</ol>
 <ul>
 <li><strong>Type</strong> is <strong>Custom TCP</strong>.</li>
 <li><strong>Port range</strong> is <strong>8080</strong>.</li>
@@ -1192,289 +688,6 @@ cd app
             
         
                     
-                        
-            
-            
-                
-                    
-                        
-                        
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                        
-                    
-                    
-
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
             
         
         
@@ -1487,7 +700,7 @@ cd app
 			<a class="nav nav-prev" href="/2-prerequiste/2.3-installation/" title="Installation"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/3-deployappwithdocker/" title="Deploy application with Docker" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/2-prerequiste/2.1-createcloud9workspace/" title="Create Cloud9 workspace" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1497,19 +710,19 @@ cd app
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/js/clipboard.min.js?1714749797"></script>
-    <script src="/js/perfect-scrollbar.min.js?1714749797"></script>
-    <script src="/js/perfect-scrollbar.jquery.min.js?1714749797"></script>
-    <script src="/js/jquery.sticky.js?1714749797"></script>
-    <script src="/js/featherlight.min.js?1714749797"></script>
-    <script src="/js/highlight.pack.js?1714749797"></script>
+    <script src="/js/clipboard.min.js?1714889568"></script>
+    <script src="/js/perfect-scrollbar.min.js?1714889568"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1714889568"></script>
+    <script src="/js/jquery.sticky.js?1714889568"></script>
+    <script src="/js/featherlight.min.js?1714889568"></script>
+    <script src="/js/highlight.pack.js?1714889568"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/js/modernizr.custom-3.6.0.js?1714749797"></script>
-    <script src="/js/learn.js?1714749797"></script>
-    <script src="/js/hugo-learn.js?1714749797"></script>
+    <script src="/js/modernizr.custom-3.6.0.js?1714889568"></script>
+    <script src="/js/learn.js?1714889568"></script>
+    <script src="/js/hugo-learn.js?1714889568"></script>
 
-    <link href="/mermaid/mermaid.css?1714749797" rel="stylesheet" />
-    <script src="/mermaid/mermaid.js?1714749797"></script>
+    <link href="/mermaid/mermaid.css?1714889568" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1714889568"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>
