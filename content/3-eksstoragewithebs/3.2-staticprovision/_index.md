@@ -162,7 +162,7 @@ kubectl exec app -- cat /data/out.txt
 ```
 ![Static Provision](../../images/3.eksstoragewithebs/3.2.staticprovision/3.2.18.staticprovision.png?pc=60pt)
 
-There are a lot of data wrote to **/data/out.txt** file. Let take note the name of three first data to compare later.
+There are a lot of data wrote to **/data/out.txt** file. Let take note the content of three first data to compare later.
 In my case is **Mon May 6 17:15:04 UTC 2024**, **Mon May 6 17:15:09 UTC 2024** and **Mon May 6 17:15:14 UTC 2024**.
 
 Now, we will delete the pod then create another new pod to verify data in EBS volume is persistent with the new one.

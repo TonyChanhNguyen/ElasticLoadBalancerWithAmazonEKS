@@ -34,7 +34,7 @@ kubectl version --client
 
 ### Install eksctl
 
-1. At Cloud9 terminal, execute those command to install Amazon EKS.
+1. At Cloud9 terminal, execute those command to install eksctl.
 + Download and extract the latest release of eksctl with the following command.
 ```
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp

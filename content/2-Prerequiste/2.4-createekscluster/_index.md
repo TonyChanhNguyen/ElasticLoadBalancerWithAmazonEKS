@@ -6,7 +6,7 @@ chapter : false
 pre : " <b> 2.4 </b> "
 ---
 
-In previous step, we installed necessary tools: awscli, kubectl and eksctl. Now, we will process to craete an Amazon EKS Cluster with managed Node Group as EC2 Instance.
+In previous step, we installed necessary tools: awscli, kubectl and eksctl. Now, we will process to create an Amazon EKS Cluster with managed Node Group as EC2 Instance.
 
 ### Create Amazon EKS Cluster.
 1. At Cloud9 terminal, execute the command the below to create an Amazon EKS Cluster.
@@ -41,7 +41,7 @@ kubectl get svc
 
 ### Create and associate IAM OIDC Provider for EKS Cluster.
 IAM OpenID Connect (OIDC) Provider help to use some Amazon EKS add-ons, or to enable individual Kubernetes workloads to have specific AWS Identity and Access Management (IAM) permissions.
-1. At Cloud9 terminal, execute the command the below to create amd associate an OIDC Provider to your Amazon EKS Cluster.
+1. At Cloud9 terminal, execute the command the below to create and associate an OIDC Provider to your Amazon EKS Cluster.
 ```
 eksctl utils associate-iam-oidc-provider --cluster=fcj-storage-cluster --region=ap-southeast-1 --approve
 ```

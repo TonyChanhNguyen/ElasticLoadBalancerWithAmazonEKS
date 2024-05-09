@@ -73,7 +73,7 @@ spec:
 ```
 ![Dynamic Provision](../../images/3.eksstoragewithebs/3.3.dynamicprovision/3.3.3.dynamicprovision.png?pc=60pt)
 
-### Deploy resources### Deploy the resources
+### Deploy resources
 1. At Cloud9 Terminal, execute the below command.
 ```
 kubectl apply -f dynamic-provision/kube-manifest
