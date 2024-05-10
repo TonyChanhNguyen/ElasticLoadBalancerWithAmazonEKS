@@ -1,10 +1,10 @@
 ---
-title : "Persistent Storage on Amazon EKS"
+title : "Database with Amazon EKS"
 date :  "`r Sys.Date()`" 
 weight : 1 
 chapter : false
 ---
-# Persistent Storage on Amazon EKS
+# Database with Amazon EKS
 
 ### Overview
 
@@ -16,6 +16,3 @@ This workshop will provide a high level overview on how to integrate two AWS Sto
 
 1. [Introduction](1-introduce/)
 2. [Prerequisites](2-prerequiste/)
-3. [Amazon EKS Storage with Amazon EBS](3-eksstoragewithebs/)
-4. [Amazon EKS Storage with Amazon EFS](4-eksstoragewithefs/)
-5. [Cleanup resource](5-cleanup/)

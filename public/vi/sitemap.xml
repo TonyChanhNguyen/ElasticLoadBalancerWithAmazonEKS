@@ -14,30 +14,6 @@
                 href="/vi/"
                 />
   </url><url>
-    <loc>/vi/3-eksstoragewithebs/3.1-installcsidriver/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/3-eksstoragewithebs/3.1-installcsidriver/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/3-eksstoragewithebs/3.1-installcsidriver/"
-                />
-  </url><url>
-    <loc>/vi/4-eksstoragewithefs/4.1-installecsidriver/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/4-eksstoragewithefs/4.1-installecsidriver/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/4-eksstoragewithefs/4.1-installecsidriver/"
-                />
-  </url><url>
     <loc>/vi/1-introduce/</loc>
     <xhtml:link
                 rel="alternate"
@@ -74,18 +50,6 @@
                 href="/vi/2-prerequiste/"
                 />
   </url><url>
-    <loc>/vi/3-eksstoragewithebs/3.2-staticprovision/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/3-eksstoragewithebs/3.2-staticprovision/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/3-eksstoragewithebs/3.2-staticprovision/"
-                />
-  </url><url>
     <loc>/vi/2-prerequiste/2.2-modifyiamrole/</loc>
     <xhtml:link
                 rel="alternate"
@@ -96,54 +60,6 @@
                 rel="alternate"
                 hreflang="vi"
                 href="/vi/2-prerequiste/2.2-modifyiamrole/"
-                />
-  </url><url>
-    <loc>/vi/4-eksstoragewithefs/4.2-createefs/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/4-eksstoragewithefs/4.2-createefs/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/4-eksstoragewithefs/4.2-createefs/"
-                />
-  </url><url>
-    <loc>/vi/3-eksstoragewithebs/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/3-eksstoragewithebs/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/3-eksstoragewithebs/"
-                />
-  </url><url>
-    <loc>/vi/4-eksstoragewithefs/4.3-staticprovision/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/4-eksstoragewithefs/4.3-staticprovision/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/4-eksstoragewithefs/4.3-staticprovision/"
-                />
-  </url><url>
-    <loc>/vi/3-eksstoragewithebs/3.3-dynamicprovision/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/3-eksstoragewithebs/3.3-dynamicprovision/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/3-eksstoragewithebs/3.3-dynamicprovision/"
                 />
   </url><url>
     <loc>/vi/2-prerequiste/2.3-installation/</loc>
@@ -158,30 +74,6 @@
                 href="/vi/2-prerequiste/2.3-installation/"
                 />
   </url><url>
-    <loc>/vi/4-eksstoragewithefs/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/4-eksstoragewithefs/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/4-eksstoragewithefs/"
-                />
-  </url><url>
-    <loc>/vi/4-eksstoragewithefs/4.4-dynamicprovision/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/4-eksstoragewithefs/4.4-dynamicprovision/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/4-eksstoragewithefs/4.4-dynamicprovision/"
-                />
-  </url><url>
     <loc>/vi/2-prerequiste/2.4-createekscluster/</loc>
     <xhtml:link
                 rel="alternate"
@@ -192,18 +84,6 @@
                 rel="alternate"
                 hreflang="vi"
                 href="/vi/2-prerequiste/2.4-createekscluster/"
-                />
-  </url><url>
-    <loc>/vi/5-cleanup/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="/5-cleanup/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="vi"
-                href="/vi/5-cleanup/"
                 />
   </url><url>
     <loc>/vi/categories/</loc>

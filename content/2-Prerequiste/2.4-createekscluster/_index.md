@@ -11,7 +11,7 @@ In previous step, we installed necessary tools: awscli, kubectl and eksctl. Now,
 ### Create Amazon EKS Cluster.
 1. At Cloud9 terminal, execute the command the below to create an Amazon EKS Cluster.
 ```
-eksctl create cluster --name=fcj-storage-cluster --region=ap-southeast-1 --zones=ap-southeast-1a,ap-southeast-1b --without-nodegroup
+eksctl create cluster --name=fcj-db-cluster --region=ap-southeast-1 --zones=ap-southeast-1a,ap-southeast-1b --without-nodegroup
 ```
 
 ![Create EKS Cluster](../../images/2.prerequisites/2.4.createekscluster/2.4.1.createekscluster.png?pc=60pt)
@@ -25,7 +25,7 @@ eksctl get cluster --region=ap-southeast-1
 
 3. Enable **kubectl** to communicate with your cluster by adding a new context to the **kubectl config** file.
 ```
-aws eks update-kubeconfig --region=ap-southeast-1 --name=fcj-storage-cluster
+aws eks update-kubeconfig --region=ap-southeast-1 --name=fcj-db-cluster
 ```
 ![Create EKS Cluster](../../images/2.prerequisites/2.4.createekscluster/2.4.3.createekscluster.png?pc=60pt)
 
@@ -43,7 +43,7 @@ kubectl get svc
 IAM OpenID Connect (OIDC) Provider help to use some Amazon EKS add-ons, or to enable individual Kubernetes workloads to have specific AWS Identity and Access Management (IAM) permissions.
 1. At Cloud9 terminal, execute the command the below to create and associate an OIDC Provider to your Amazon EKS Cluster.
 ```
-eksctl utils associate-iam-oidc-provider --cluster=fcj-storage-cluster --region=ap-southeast-1 --approve
+eksctl utils associate-iam-oidc-provider --cluster=fcj-db-cluster --region=ap-southeast-1 --approve
 ```
 ![Create EKS Cluster](../../images/2.prerequisites/2.4.createekscluster/2.4.5.createekscluster.png?pc=60pt)
 
@@ -56,7 +56,7 @@ eksctl utils associate-iam-oidc-provider --cluster=fcj-storage-cluster --region=
 ### Create Amazon EKS managed Node Group.
 1. At Cloud9 terminal, execute the command the below to create managed Node Group and associate it to EKS Cluster.
 ```
-eksctl create nodegroup --name=fcj-storage-nodegroup --cluster=fcj-storage-cluster --region=ap-southeast-1 --node-type=t3.medium --nodes=1
+eksctl create nodegroup --name=fcj-db-nodegroup --cluster=fcj-db-cluster --region=ap-southeast-1 --node-type=t3.medium --nodes=1
 ```
 
 ![Create EKS Cluster](../../images/2.prerequisites/2.4.createekscluster/2.4.7.createekscluster.png?pc=60pt)
