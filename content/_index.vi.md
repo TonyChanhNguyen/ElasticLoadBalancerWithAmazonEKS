@@ -8,7 +8,7 @@ chapter : false
 
 ### Tổng quan
 
-This workshop will provide a high level overview on how to integrate MySQL Database for application that run on Amazon EKS Cluster via Amazon Elastic Block Storage (EBS) and Amazon RDS services.
+
 Bài thực hành này sẽ cung cấp một cái nhìn tổng quan về việc làm thế nào để tích hợp CSDL MySQL cho ứng dụng chạy trên Amazon EKS Cluster thông qua dịch vụ Amazon Elastic Block Storage (EBS) và Amazon RDS
 ![Triển khai CSDL trên Amazon EKS](../images/eksebsmysqlrds.png?pc=60pt)
 
