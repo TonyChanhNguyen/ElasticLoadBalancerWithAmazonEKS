@@ -18,7 +18,7 @@ home = [ "HTML", "RSS", "JSON"]
   
 [Languages]
 [Languages.en]
-title = "Persistent Storage on Amazon EKS"
+title = "Deploy database on Amazon EKS"
 weight = 1
 languageName = "English"
 
@@ -29,7 +29,7 @@ url = "https://www.facebook.com/groups/awsstudygroupfcj/"
 weight = 20
 
 [Languages.vi]
-title = "Bộ lưu trữ trong Amazon EKS"
+title = "Triển khai CSDL trên Amazon EKS"
 weight = 2
 languageName = "Tiếng Việt"
 

@@ -2,6 +2,8 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>/4-eksdbwithrds/4.1-createrdsdb/</loc>
+  </url><url>
     <loc>/2-prerequiste/2.1-createcloud9workspace/</loc>
     <xhtml:link
                 rel="alternate"
@@ -26,6 +28,18 @@
                 href="/"
                 />
   </url><url>
+    <loc>/3-eksdbwithebs/3.1-installcsidriver/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/3-eksdbwithebs/3.1-installcsidriver/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/3-eksdbwithebs/3.1-installcsidriver/"
+                />
+  </url><url>
     <loc>/1-introduce/</loc>
     <xhtml:link
                 rel="alternate"
@@ -36,6 +50,20 @@
                 rel="alternate"
                 hreflang="en"
                 href="/1-introduce/"
+                />
+  </url><url>
+    <loc>/4-eksdbwithrds/4.2-deployapp/</loc>
+  </url><url>
+    <loc>/3-eksdbwithebs/3.2-deploymysqlonebs/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/3-eksdbwithebs/3.2-deploymysqlonebs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/3-eksdbwithebs/3.2-deploymysqlonebs/"
                 />
   </url><url>
     <loc>/2-prerequiste/2.2-modifyiamrole/</loc>
@@ -62,6 +90,30 @@
                 href="/2-prerequiste/"
                 />
   </url><url>
+    <loc>/3-eksdbwithebs/3.3-deployappdeployment/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/3-eksdbwithebs/3.3-deployappdeployment/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/3-eksdbwithebs/3.3-deployappdeployment/"
+                />
+  </url><url>
+    <loc>/3-eksdbwithebs/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/3-eksdbwithebs/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/3-eksdbwithebs/"
+                />
+  </url><url>
     <loc>/2-prerequiste/2.3-installation/</loc>
     <xhtml:link
                 rel="alternate"
@@ -84,6 +136,22 @@
                 rel="alternate"
                 hreflang="en"
                 href="/2-prerequiste/2.4-createekscluster/"
+                />
+  </url><url>
+    <loc>/4-eksdbwithrds/</loc>
+  </url><url>
+    <loc>/5-cleanup/</loc>
+  </url><url>
+    <loc>/2-prerequiste/2.5-createapplication/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/2-prerequiste/2.5-createapplication/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/2-prerequiste/2.5-createapplication/"
                 />
   </url><url>
     <loc>/categories/</loc>
