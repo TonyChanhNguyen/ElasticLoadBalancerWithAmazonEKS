@@ -13,4 +13,4 @@ pre : " <b> 2. </b> "
 + 2.2 [Cấu hình IAM Role](../2-prerequiste/2.2-modifyiamrole/)
 + 2.3 [Cài đặt công cụ](../2-prerequiste/2.3-installation/)
 + 2.4 [Tạo Amazon EKS Cluster](../2-prerequiste/2.4-createekscluster/)
-+ 2.5 [Tạo ứng dụng](2.5-createapplication/)
++ 2.5 [Tạo ứng dụng](../2.5-createapplication/)

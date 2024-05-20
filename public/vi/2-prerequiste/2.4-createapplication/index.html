@@ -1,0 +1,869 @@
+<!DOCTYPE html>
+<html lang="vi" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.96.0" />
+    <meta name="description" content="">
+<meta name="author" content="journeyoftheaverageguy@gmail.com">
+
+    <link rel="icon" href="/images/favicon.png" type="image/png">
+
+    <title>Tạo ứng dụng :: Triển khai CSDL trên Amazon EKS</title>
+
+    
+    <link href="/css/nucleus.css?1715654247" rel="stylesheet">
+    <link href="/css/fontawesome-all.min.css?1715654247" rel="stylesheet">
+    <link href="/css/hybrid.css?1715654247" rel="stylesheet">
+    <link href="/css/featherlight.min.css?1715654247" rel="stylesheet">
+    <link href="/css/perfect-scrollbar.min.css?1715654247" rel="stylesheet">
+    <link href="/css/auto-complete.css?1715654247" rel="stylesheet">
+    <link href="/css/atom-one-dark-reasonable.css?1715654247" rel="stylesheet">
+    <link href="/css/theme.css?1715654247" rel="stylesheet">
+    <link href="/css/hugo-theme.css?1715654247" rel="stylesheet">
+    
+    <link href="/css/theme-workshop.css?1715654247" rel="stylesheet">
+    
+    
+
+    <script src="/js/jquery-3.3.1.min.js?1715654247"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/vi/2-prerequiste/2.4-createapplication/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/">
+
+<svg id="Layer_1" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 30" width="30%"><defs><style>.cls-1{fill:#fff;}.cls-2{fill:#f90;fill-rule:evenodd;}</style></defs><title>AWS-Logo_White-Color</title><path class="cls-1" d="M14.09,10.85a4.7,4.7,0,0,0,.19,1.48,7.73,7.73,0,0,0,.54,1.19.77.77,0,0,1,.12.38.64.64,0,0,1-.32.49l-1,.7a.83.83,0,0,1-.44.15.69.69,0,0,1-.49-.23,3.8,3.8,0,0,1-.6-.77q-.25-.42-.51-1a6.14,6.14,0,0,1-4.89,2.3,4.54,4.54,0,0,1-3.32-1.19,4.27,4.27,0,0,1-1.22-3.2A4.28,4.28,0,0,1,3.61,7.75,6.06,6.06,0,0,1,7.69,6.46a12.47,12.47,0,0,1,1.76.13q.92.13,1.91.36V5.73a3.65,3.65,0,0,0-.79-2.66A3.81,3.81,0,0,0,7.86,2.3a7.71,7.71,0,0,0-1.79.22,12.78,12.78,0,0,0-1.79.57,4.55,4.55,0,0,1-.58.22l-.26,0q-.35,0-.35-.52V2a1.09,1.09,0,0,1,.12-.58,1.2,1.2,0,0,1,.47-.35A10.88,10.88,0,0,1,5.77.32,10.19,10.19,0,0,1,8.36,0a6,6,0,0,1,4.35,1.35,5.49,5.49,0,0,1,1.38,4.09ZM7.34,13.38a5.36,5.36,0,0,0,1.72-.31A3.63,3.63,0,0,0,10.63,12,2.62,2.62,0,0,0,11.19,11a5.63,5.63,0,0,0,.16-1.44v-.7a14.35,14.35,0,0,0-1.53-.28,12.37,12.37,0,0,0-1.56-.1,3.84,3.84,0,0,0-2.47.67A2.34,2.34,0,0,0,5,11a2.35,2.35,0,0,0,.61,1.76A2.4,2.4,0,0,0,7.34,13.38Zm13.35,1.8a1,1,0,0,1-.64-.16,1.3,1.3,0,0,1-.35-.65L15.81,1.51a3,3,0,0,1-.15-.67.36.36,0,0,1,.41-.41H17.7a1,1,0,0,1,.65.16,1.4,1.4,0,0,1,.33.65l2.79,11,2.59-11A1.17,1.17,0,0,1,24.39.6a1.1,1.1,0,0,1,.67-.16H26.4a1.1,1.1,0,0,1,.67.16,1.17,1.17,0,0,1,.32.65L30,12.39,32.88,1.25A1.39,1.39,0,0,1,33.22.6a1,1,0,0,1,.65-.16h1.54a.36.36,0,0,1,.41.41,1.36,1.36,0,0,1,0,.26,3.64,3.64,0,0,1-.12.41l-4,12.86a1.3,1.3,0,0,1-.35.65,1,1,0,0,1-.64.16H29.25a1,1,0,0,1-.67-.17,1.26,1.26,0,0,1-.32-.67L25.67,3.64,23.11,14.34a1.26,1.26,0,0,1-.32.67,1,1,0,0,1-.67.17Zm21.36.44a11.28,11.28,0,0,1-2.56-.29,7.44,7.44,0,0,1-1.92-.67,1,1,0,0,1-.61-.93v-.84q0-.52.38-.52a.9.9,0,0,1,.31.06l.42.17a8.77,8.77,0,0,0,1.83.58,9.78,9.78,0,0,0,2,.2,4.48,4.48,0,0,0,2.43-.55,1.76,1.76,0,0,0,.86-1.57,1.61,1.61,0,0,0-.45-1.16A4.29,4.29,0,0,0,43,9.22l-2.41-.76A5.15,5.15,0,0,1,38,6.78a3.94,3.94,0,0,1-.83-2.41,3.7,3.7,0,0,1,.45-1.85,4.47,4.47,0,0,1,1.19-1.37A5.27,5.27,0,0,1,40.51.29,7.4,7.4,0,0,1,42.6,0a8.87,8.87,0,0,1,1.12.07q.57.07,1.08.19t.95.26a4.27,4.27,0,0,1,.7.29,1.59,1.59,0,0,1,.49.41.94.94,0,0,1,.15.55v.79q0,.52-.38.52a1.76,1.76,0,0,1-.64-.2,7.74,7.74,0,0,0-3.2-.64,4.37,4.37,0,0,0-2.21.47,1.6,1.6,0,0,0-.79,1.48,1.58,1.58,0,0,0,.49,1.18,4.94,4.94,0,0,0,1.83.92L44.55,7a5.08,5.08,0,0,1,2.57,1.6A3.76,3.76,0,0,1,47.9,11a4.21,4.21,0,0,1-.44,1.93,4.4,4.4,0,0,1-1.21,1.47,5.43,5.43,0,0,1-1.85.93A8.25,8.25,0,0,1,42.05,15.62Z"></path><path class="cls-2" d="M45.19,23.81C39.72,27.85,31.78,30,25,30A36.64,36.64,0,0,1,.22,20.57c-.51-.46-.06-1.09.56-.74A49.78,49.78,0,0,0,25.53,26.4,49.23,49.23,0,0,0,44.4,22.53C45.32,22.14,46.1,23.14,45.19,23.81Z"></path><path class="cls-2" d="M47.47,21.21c-.7-.9-4.63-.42-6.39-.21-.53.06-.62-.4-.14-.74,3.13-2.2,8.27-1.57,8.86-.83s-.16,5.89-3.09,8.35c-.45.38-.88.18-.68-.32C46.69,25.8,48.17,22.11,47.47,21.21Z"></path></svg>
+
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/js/lunr.min.js?1715654247"></script>
+<script type="text/javascript" src="/js/auto-complete.js?1715654247"></script>
+<script type="text/javascript">
+    
+        var baseurl = "\/vi";
+    
+</script>
+<script type="text/javascript" src="/js/search.js?1715654247"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/1-introduce/" title="Giới thiệu" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/1-introduce/">
+           <b> 1. </b> Giới thiệu
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/" title="Các bước chuẩn bị" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/vi/2-prerequiste/">
+           <b> 2. </b> Các bước chuẩn bị
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/2.1-createcloud9workspace/" title="Tạo môi trường làm việc Cloud9" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prerequiste/2.1-createcloud9workspace/">
+           <b> 2.1 </b> Tạo môi trường làm việc Cloud9
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/2.2-modifyiamrole/" title="Cấu hình IAM role" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prerequiste/2.2-modifyiamrole/">
+           <b> 2.2 </b> Cấu hình IAM role
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/2.3-installation/" title="Cài đặt công cụ" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prerequiste/2.3-installation/">
+           <b> 2.3 </b> Cài đặt công cụ
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/2.5-createekscluster/" title="Tạo Amazon EKS Cluster" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/vi/2-prerequiste/2.5-createekscluster/">
+           <b> 2.4 </b> Tạo Amazon EKS Cluster
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+
+
+ 
+  
+    
+    <li data-nav-id="/vi/2-prerequiste/2.4-createapplication/" title="Tạo ứng dụng" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/vi/2-prerequiste/2.4-createapplication/">
+           <b> 2.5 </b> Tạo ứng dụng
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://www.facebook.com/groups/awsstudygroupfcj/"><i class='fab fa-facebook'></i> AWS Study Group</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="/2-prerequiste/2.4-createapplication/">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="vi" value="/vi/2-prerequiste/2.4-createapplication/" selected>Tiếng Việt</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <left>
+    
+     <b> Workshop</b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7920860&style=0038&nbdigits=9&type=page&initCount=0" title="Migrate" Alt="web counter"   border="0" /></a>  <br>
+     <b> <a href="https://cloudjourney.awsstudygroup.com/">Cloud Journey</a></b> <br>
+    <img src="https://hitwebcounter.com/counter/counter.php?page=7830807&style=0038&nbdigits=9&type=page&initCount=0" title="Total CLoud Journey" Alt="web counter"   border="0"   />
+     
+</left>
+<left>
+    <br>
+    <br>
+        <b> Last Updated </b> <br>
+        <i><font color=orange>30-01-2022</font></i>
+    </left>
+    <left>
+        <br>
+        <br>
+            <b> Team </b> <br>
+           
+            <i> <a href="https://www.linkedin.com/in/sutrinh/"  style="color:orange">Sử Trịnh  </a> <br>
+                <a href="https://www.linkedin.com/in/jotaguy"  style="color:orange">Gia Hưng </a> <br>
+                <a href="https://www.linkedin.com/in/hiepnguyendt"  style="color:orange">Thanh Hiệp </a>
+               
+        </i>
+        </left>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/vi/'>Triển khai CSDL trên Amazon EKS</a> > <a href='/vi/2-prerequiste/'>Các bước chuẩn bị</a> > Tạo ứng dụng
+          
+        
+          
+        
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#tải-xuống-ứng-dụng">Tải xuống ứng dụng.</a></li>
+        <li><a href="#đóng-gói-ứng-dụng">Đóng gói ứng dụng</a></li>
+        <li><a href="#đẩy-container-image-lên-dockerhub">Đẩy Container Image lên DockerHub</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Tạo ứng dụng
+            </h1>
+          
+
+        
+
+
+
+	<p>Trong chương này, chúng ta sẽ tải xuống một ứng dụng mẫu <strong>FCJ Management</strong>.</p>
+<h3 id="tải-xuống-ứng-dụng">Tải xuống ứng dụng.</h3>
+<ol>
+<li>Kiểm tra phiên bản của Git.</li>
+</ol>
+<pre tabindex="0"><code>git version
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.1.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<ol start="2">
+<li>Nâng cấp Git lên phiên bản mới nhất.</li>
+</ol>
+<pre tabindex="0"><code>sudo yum update git
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.2.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<ol start="3">
+<li>Tạo và di chuyển đến thư mục làm việc.</li>
+</ol>
+<pre tabindex="0"><code>mkdir fcj-user-management
+cd fcj-user-management
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.3.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<ol start="4">
+<li>Tải xuống ứng dụng.</li>
+</ol>
+<pre tabindex="0"><code>git clone https://github.com/First-Cloud-Journey/000004-EC2.git
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.4.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<ol start="5">
+<li>Liệt kê tất cả tài nguyên của ứng dụng.</li>
+</ol>
+<pre tabindex="0"><code>ls
+ls 000004-EC2
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.5.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<ol start="6">
+<li>Đổi tên thư mục <strong>000004-EC2</strong> thành <strong>Application</strong>.</li>
+</ol>
+<pre tabindex="0"><code>mv 000004-EC2 Application
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.6.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<ol start="7">
+<li>Liệt kê lại tất cả tài nguyên của ứng dụng.</li>
+</ol>
+<pre tabindex="0"><code>ls
+ls Application
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.7.createapp.png?pc=60pt" alt="Tạo ứng dụng">
+8. Di chuyển đến thư mục ứng dụng và cài đặt các gói phụ thuộc của ứng dụng trên <strong>package.json</strong>.</p>
+<pre tabindex="0"><code>cd Application
+npm install
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.8.createapp.png?pc=60pt" alt="Tạo ứng dụng">
+9. Khởi chạy ứng dụng.</p>
+<pre tabindex="0"><code>node app.js
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.9.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<p>Ứng dụng sẽ trả về lỗi <strong>Fail to connect to database</strong>, bởi vì chưa có CSDL MySQL được tạo và cung cấp cho ứng dụng để sử dụng.</p>
+<p>Bây giờ chúng ta sẽ đóng gói ứng dụng thành Container Image bằng Docker. CSDL MySQL sẽ được cung cấp ở các phần tiếp theo.</p>
+<h3 id="đóng-gói-ứng-dụng">Đóng gói ứng dụng</h3>
+<ol>
+<li>Kiểm tra phiên bản của Docker.</li>
+</ol>
+<pre tabindex="0"><code>docker version
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.10.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<ol start="2">
+<li>Tạo tệp <strong>Dockerfile</strong>.</li>
+</ol>
+<pre tabindex="0"><code>touch Dockerfile
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.11.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<ol start="3">
+<li>Mở tệp <strong>Dockerfile</strong>, dán đoạn mã code bên dưới và lưu lại.</li>
+</ol>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cmd" data-lang="cmd"><span style="display:flex;"><span># Use an official Node.js runtime as a parent image
+</span></span><span style="display:flex;"><span>FROM node:13-alpine
+</span></span><span style="display:flex;"><span># Set the working directory in the container
+</span></span><span style="display:flex;"><span>WORKDIR app
+</span></span><span style="display:flex;"><span># Copy package.json and package-lock.json to the working directory
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">COPY</span> package*.json ./
+</span></span><span style="display:flex;"><span># Install dependencies
+</span></span><span style="display:flex;"><span>RUN npm install
+</span></span><span style="display:flex;"><span># Copy the rest of the application code
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">COPY</span> . .
+</span></span><span style="display:flex;"><span># Expose the port the app runs on
+</span></span><span style="display:flex;"><span>EXPOSE 5000
+</span></span><span style="display:flex;"><span># Command to run the application
+</span></span><span style="display:flex;"><span>CMD [<span style="color:#e6db74">&#34;npm&#34;</span>,<span style="color:#e6db74">&#34;start&#34;</span>]
+</span></span></code></pre></div><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.12.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<ol start="4">
+<li>Tạo tệp <strong>.dockerignore</strong> để làm giảm dung lượng cho Container Image.</li>
+</ol>
+<pre tabindex="0"><code>touch .dockerignore
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.13.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<ol start="5">
+<li>
+<p>Nhấn vào biểu tượng <strong>Settings</strong>, chọn <strong>Show Hidden Files</strong> để nhìn thấy tệp ẩn <strong>.dockerignore</strong>.
+<img src="../../../images/2.prerequisites/2.5.createapp/2.5.14.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+</li>
+<li>
+<p>Mở tệp <strong>.dockerignore</strong>, dán đoạn mã code bên dưới và lưu lại.</p>
+</li>
+</ol>
+<pre tabindex="0"><code>.git
+node_modules
+Dockerfile
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.15.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<ol start="7">
+<li>Liệt kê tất cả Image trong máy chủ. Đảm bảo rằng không có Image nào tên <strong>fcj-management</strong> bởi vì chúng ta sẽ dùng tên này để đặt cho Container Image.</li>
+</ol>
+<pre tabindex="0"><code>docker images
+</code></pre><ol start="8">
+<li>Xây dựng ứng dụng thành Container Image.</li>
+</ol>
+<pre tabindex="0"><code>docker build -t fcj-management:v1 .
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.16.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<ol start="9">
+<li>Sau khi quy trình này hoàn tất. Hãy liệt kê lại tất cả Image trong máy chủ làm việc.</li>
+</ol>
+<pre tabindex="0"><code>docker images
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.17.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<p>Container Image tên <strong>fcj-management</strong> với nhãn <strong>v1</strong> được tạo thành công từ ứng dụng <strong>FCJ Management</strong>. Bây giờ hãy sử dụng Docker để triển khai ứng dụng từ Container Image vừa tạo cho mục đích kiểm thử.</p>
+<ol start="10">
+<li>Thực thi câu lệnh bên dưới để triển khai ứng dụng từ Container Image vừa tạo.</li>
+</ol>
+<pre tabindex="0"><code>docker run -d --name testing-application -e PORT=8080 -p 8080:8080 fcj-management:v1
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.18.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<ol start="11">
+<li>Liệt kê các process đang chạy bên trong máy chủ làm việc.</li>
+</ol>
+<pre tabindex="0"><code>docker ps
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.20.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<ol start="12">
+<li>Kiểm tra Log của ứng dụng.</li>
+</ol>
+<pre tabindex="0"><code>docker logs testing-application
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.21.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<p>Lỗi xuất hiện trên log cũng là <strong>Fail to connect to database</strong>. Có nghĩa Container Image đã được xây dụng thành công.</p>
+<ol start="13">
+<li>Hãy xóa tất cả Process đang chạy.</li>
+</ol>
+<pre tabindex="0"><code>docker stop testing-application
+docker rm testing-application
+docker ps -a
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.22.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<h3 id="đẩy-container-image-lên-dockerhub">Đẩy Container Image lên DockerHub</h3>
+<p>Trong bước này, chúng ta sẽ đẩy Container Image vừa tạo lên DockerHub cho Amazon EKS Cluster có thể kéo về để chạy Pod. Vì thế chúng ta sẽ không đào sâu vào việc làm thế nào để sử dụng DockerHub, chi tiết truy cập <a href="https://docs.docker.com/">DockerHub Docs</a>.</p>
+<ol>
+<li>
+<p>Đăng nhập vào <a href="https://hub.docker.com/repository/docker">DockerHub</a> với tài khoản của bạn.</p>
+</li>
+<li>
+<p>Tạo một Repository tên <code>fcj-management</code>.
+<img src="../../../images/2.prerequisites/2.5.createapp/2.5.23.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+</li>
+<li>
+<p>Đi đến <a href="https://hub.docker.com/settings/security">DockerHub Security</a> để tạo Access Token mới cho máy chủ làm việc Cloud9 đăng nhập.</p>
+</li>
+<li>
+<p>Nhấn <strong>New Access Token</strong>.
+<img src="../../../images/2.prerequisites/2.5.createapp/2.5.24.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+</li>
+<li>
+<p>Nhập tại <strong>Access Token Description</strong> là <code>Access Token for FCJ Workshop</code>.</p>
+</li>
+<li>
+<p>Giữ mặc định <strong>Access Permissions</strong> (với quyền Read, Write, Delete).</p>
+</li>
+<li>
+<p>Sau đó, nhấn <strong>Generate</strong>.
+<img src="../../../images/2.prerequisites/2.5.createapp/2.5.25.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+</li>
+<li>
+<p>Lưu mã Access Token lại để sử dụng sau.
+<img src="../../../images/2.prerequisites/2.5.createapp/2.5.26.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+</li>
+<li>
+<p>Trở lại cửa sổ lệnh Cloud9, đăng nhập vào DockerHub.</p>
+</li>
+</ol>
+<pre tabindex="0"><code>docker login -u firstcloudjourneypcr
+</code></pre><ol start="10">
+<li>Nhập Access Token nếu bị hỏi <strong>Password</strong>.
+<img src="../../../images/2.prerequisites/2.5.createapp/2.5.27.createapp.png?pc=60pt" alt="Tạo ứng dụng"></li>
+</ol>
+<p>Để đẩy Container Image lên DockerHub repository. Repository của Container Image phải khớp với tên Repository trên DockerHub.</p>
+<ol start="11">
+<li>Để làm điều đó, chúng ta sẽ gắn nhãn cho Container Image.</li>
+</ol>
+<pre tabindex="0"><code>docker tag fcj-management:v1 firstcloudjourneypcr/fcj-management:v1
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.28.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<ol start="12">
+<li>Liệt kê tất cả Image trong máy chủ làm việc.</li>
+</ol>
+<pre tabindex="0"><code>docker images
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.29.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<p>Cho một Image mới được chép lại với Repository tên là <strong>firstcloudjourneypcr/fcj-management</strong>, nhãn và <strong>v1</strong>.
+13. Bây giờ, hãy đẩy Container Image lên DockerHub.</p>
+<pre tabindex="0"><code>docker push firstcloudjourneypcr/fcj-management:v1
+</code></pre><p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.30.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<ol start="14">
+<li>Đi đến DockerHub Repository <strong>firstcloudjourneypcr/fcj-management</strong> để kiểm tra.</li>
+</ol>
+<p><img src="../../../images/2.prerequisites/2.5.createapp/2.5.31.createapp.png?pc=60pt" alt="Tạo ứng dụng"></p>
+<p>Có một Image mới vừa được đẩy lên DockerHub Repository với tag là <strong>v1</strong>.</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/vi/2-prerequiste/2.5-createekscluster/" title="Tạo Amazon EKS Cluster"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/vi/2-prerequiste/2.1-createcloud9workspace/" title="Tạo môi trường làm việc Cloud9" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/js/clipboard.min.js?1715654247"></script>
+    <script src="/js/perfect-scrollbar.min.js?1715654247"></script>
+    <script src="/js/perfect-scrollbar.jquery.min.js?1715654247"></script>
+    <script src="/js/jquery.sticky.js?1715654247"></script>
+    <script src="/js/featherlight.min.js?1715654247"></script>
+    <script src="/js/highlight.pack.js?1715654247"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/js/modernizr.custom-3.6.0.js?1715654247"></script>
+    <script src="/js/learn.js?1715654247"></script>
+    <script src="/js/hugo-learn.js?1715654247"></script>
+
+    <link href="/mermaid/mermaid.css?1715654247" rel="stylesheet" />
+    <script src="/mermaid/mermaid.js?1715654247"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-158079754-2', 'auto');
+  ga('send', 'pageview');
+
+</script>
+  </body>
+</html>

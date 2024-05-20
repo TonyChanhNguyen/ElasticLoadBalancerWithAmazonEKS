@@ -6,220 +6,268 @@ chapter : false
 pre : " <b> 2.5 </b> "
 ---
 
-In this section, we will clone a sample **FCJ Management**  application.
+In this section, we will create a simple application with two versions V1 and V2. Then, dockerize and push them to DockerHub for EKS Cluster use.
 
-### Clone application.
-1. Check the Git version of your workspace.
+### Create application v1
+1. At the Cloud9 terminal, enter the command below to create a new directory for application.
 ```
-git version
+mkdir app
+cd app
 ```
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.1.createapp.png?pc=60pt)
+2. Initialize application.
+```
+npm init
+```
+3. Press **Enter** to skip those step and confirm **Yes** to finish.
+![Create basic application](../../images/2.prerequisites/2.5.createapp/2.4.1.createapp.png?pc=60pt)
+4. Create a file name **index.js**.
+```
+touch index.js
+```
+5. Open **index.js** file and perform code.
+```javascript
+import express from 'express'
 
-2. Upgrade Git to latest version.
-```
-sudo yum update git
-```
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.2.createapp.png?pc=60pt)
+const app = express()
 
-3. Create and move to working directory.
-```
-mkdir fcj-user-management
-cd fcj-user-management
-```
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.3.createapp.png?pc=60pt)
+app.get('/',(req, res) => {
+    res.json("Hello world from FCJ Workshop V1!")
+})
 
-4. Clone application to your workspace.
+app.listen(8080, ()=> {
+    console.log("application running on 8080")
+})
 ```
-git clone https://github.com/First-Cloud-Journey/000004-EC2.git
-```
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.4.createapp.png?pc=60pt)
 
-5. List all resources of application.
+6. At Cloud9 Terminal, let install **express** framework.
 ```
-ls
-ls 000004-EC2
+npm i express
 ```
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.5.createapp.png?pc=60pt)
+![Create basic application](../../images/2.prerequisites/2.5.createapp/2.4.1.1.createapp.png?pc=60pt)
 
-6. Rename folder **000004-EC2** to **Application**.
+7. Save the file and enter this command in terminal to run the application.
 ```
-mv 000004-EC2 Application
+node index.js
 ```
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.6.createapp.png?pc=60pt)
 
-7. List all resources of application again.
-```
-ls
-ls Application
-```
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.7.createapp.png?pc=60pt)
-8. Move to application directory and install dependencies of application on **package.json**.
-```
-cd Application
-npm install
-```
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.8.createapp.png?pc=60pt)
-9. Start application.
-```
-node app.js
-```
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.9.createapp.png?pc=60pt)
+8. But you will get the error below.
+![Create basic application](../../images/2.prerequisites/2.5.createapp/2.4.2.createapp.png?pc=60pt)
 
-The application will get error **Fail to connect to database**, since there are no MySQL database created and provided for application to use.
-
-Now, we will containerize the application to Container Image by Docker. The MySQL Database will be provided in next sections.
-
-### Containerize application
-1. Check the version of Docker.
+9. To fix this error, open **package.json** file and add the definition below. Then save it.
 ```
-docker version
+"type":"module",
 ```
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.10.createapp.png?pc=60pt)
+![Create basic application](../../images/2.prerequisites/2.5.createapp/2.4.3.createapp.png?pc=60pt)
 
-2. Create a file name **Dockerfile**.
+10. Now, let enter the command to run your application again.
+```
+node index.js
+```
+
+11. See, your application ran on port 8080.
+![Create basic application](../../images/2.prerequisites/2.5.createapp/2.4.4.createapp.png?pc=60pt)
+
+Now, we need to access to application to see the result.
+
+12. Click on **Share**.
+13. Copy the **IP Address** at **Application** field.
+![Create basic application](../../images/2.prerequisites/2.5.createapp/2.4.5.createapp.png?pc=60pt)
+
+14. Access to the application with URL ```http://<REPLACE_YOUR_IP>:8080```.
+15. Opps, the application can not be accessed.
+![Create basic application](../../images/2.prerequisites/2.5.createapp/2.4.6.createapp.png?pc=60pt)
+
+The reason is the security group of workspace instance is still not opened for port 8080.
+
+16. Click to **R** symbol and choose **Manage EC2 Instance** to go back to workspace instance.
+![Create basic application](../../images/2.prerequisites/2.5.createapp/2.4.7.createapp.png?pc=60pt)
+
+17. At **Instances** page, select your workspace instance.
+18. Navigate to **Security** tab.
+19. Click to **Security Group**.
+![Create basic application](../../images/2.prerequisites/2.5.createapp/2.4.8.createapp.png?pc=60pt)
+
+At **Inbound rules** interface, you can see there are no rules were defined.
+
+20. Click on **Edit inbound rules**.
+![Create basic application](../../images/2.prerequisites/2.5.createapp/2.4.9.createapp.png?pc=60pt)
+21. At **Edit inbound rules** interface, click on **Add rule**.
+![Create basic application](../../images/2.prerequisites/2.5.createapp/2.4.10.createapp.png?pc=60pt)
+22. Define the rule with parameter:
++ **Type** is **Custom TCP**.
++ **Port range** is **8080**.
++ **Source** is **Anywhere-IPv4**.
+
+23. Then, click on **Save rules**.
+![Create basic application](../../images/2.prerequisites/2.5.createapp/2.4.11.createapp.png?pc=60pt)
+
+24. Now, let access to your application again and see the result.
+![Create basic application](../../images/2.prerequisites/2.5.createapp/2.4.12.createapp.png?pc=60pt)
+
+### Dockerize application v1
+1. Create a file named **Dockerfile**.
 ```
 touch Dockerfile
 ```
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.11.createapp.png?pc=60pt)
+![Dockerize application](../../images/2.prerequisites/2.5.createapp/3.2.1.createdockerfile.png?pc=90pt)
 
-3. Open **Dockerfile** file, paste the code below and save.
-```cmd
-# Use an official Node.js runtime as a parent image
+2. Open the **Dockerfile**.
+![Dockerize application](../../images/2.prerequisites/2.5.createapp/3.2.2.createdockerfile.png?pc=90pt)
+
+3. Enter the code below.
+```Dockerfile
 FROM node:13-alpine
-# Set the working directory in the container
-WORKDIR app
-# Copy package.json and package-lock.json to the working directory
-COPY package*.json ./
-# Install dependencies
-RUN npm install
-# Copy the rest of the application code
-COPY . .
-# Expose the port the app runs on
-EXPOSE 5000
-# Command to run the application
-CMD ["npm","start"]
-```
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.12.createapp.png?pc=60pt)
 
-4. Create a file name **.dockerignore** to mitigate capacity for container image.
+#configure working directory
+WORKDIR /app
+
+COPY package.json ./
+
+RUN npm install
+
+#bundle the source code
+
+COPY . ./
+
+EXPOSE 8080
+
+CMD ["node","index.js"]
+
+
+```
+![Dockerize application](../../images/2.prerequisites/2.5.createapp/3.2.3.createdockerfile.png?pc=90pt)
+
+*Note*: 
++ At step **COPY package.json ./**, Docker will copy **package.json** file to working directory **/app**, then process step **RUN npm install** to install all dependencies were defined in **package.json** file and save them to **node_modules** folder.
+
++ At step **COPY . ./**, Docker will copy all resource to working directory **/app** - include **node_modules** folder and **Dockerfile** file. Those folders and files are not necessary to copy again to working directory. So you can create **.dockerignore** to list which file or folder do not need to copy to working directory.
+
+4. Create file named **.dockerignore** by command.
 ```
 touch .dockerignore
 ```
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.13.createapp.png?pc=60pt)
+![Dockerize application](../../images/2.prerequisites/2.5.createapp/3.2.4.createdockerfile.png?pc=80pt)
 
-5. Click on **Settings** symbol, select **Show Hidden Files** to see the hidden file **.dockerignore**.
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.14.createapp.png?pc=60pt)
+You will not see where **.dockerignore** is, since Cloud9 recognize **.dockerignore** is hidden file.
 
-6. Open **.dockerignore** file, paste the code below and save.
+5. Click on **Setting**.
+6. Select **Show Hidden Files**.
+
+![Dockerize application](../../images/2.prerequisites/2.5.createapp/3.2.5.createdockerfile.png?pc=90pt)
+
+7. Open **.dockerignore** and enter those values.
 ```
-.git
 node_modules
 Dockerfile
 ```
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.15.createapp.png?pc=60pt)
+![Dockerize application](../../images/2.prerequisites/2.5.createapp/3.2.6.createdockerfile.png?pc=90pt)
 
-7. List all image in your workspace. Make sure there are no image named **fcj-management** since we will use this name for container image.
+8. Enter this command to list all container images in your machine.
 ```
 docker images
 ```
+![Dockerize application](../../images/2.prerequisites/2.5.createapp/3.2.7.createdockerfile.png?pc=90pt)
 
-8. Let build your application to container image.
+There is no existing image in workspace.
+9. Let build container image.
 ```
-docker build -t fcj-management:v1 .
+docker build -t fcj-application:v1 .
 ```
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.16.createapp.png?pc=60pt)
+![Dockerize application](../../images/2.prerequisites/2.5.createapp/3.2.8.createdockerfile.png?pc=90pt)
 
-9. After this process finished successfully. Let list the images in your workspace again.
-```
-docker images
-```
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.17.createapp.png?pc=60pt)
-
-The container image named **fcj-management** with tag **v1** is created successfully from **FCJ Management**  application. Now let use Docker to deploy your application from created container image for testing purpose.
-
-10. Execute the below command to deploy the application from created container image.
-```
-docker run -d --name testing-application -e PORT=8080 -p 8080:8080 fcj-management:v1
-```
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.18.createapp.png?pc=60pt)
-
-11. List the running process in your workspace.
-```
-docker ps
-```
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.20.createapp.png?pc=60pt)
-
-12. Watching the logs of the application.
-```
-docker logs testing-application
-```
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.21.createapp.png?pc=60pt)
-
-The errors are shown in log also **Fail to connect to database**. It means the container image is built successfully.
-
-13. Let delete running process.
-```
-docker stop testing-application
-docker rm testing-application
-docker ps -a
-```
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.22.createapp.png?pc=60pt)
-
-
-### Push container image to DockerHub
-In this step, we will push the created container image to DockerHub for Amazon EKS Cluster can pull to run Pod. So we will not deep dive how to use DockerHub, you can access to [DockerHub Docs](https://docs.docker.com/) for detail.
-1. Log in to [DockerHub](https://hub.docker.com/repository/docker) with your account.
-2. Create a new repository named ```fcj-management```.
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.23.createapp.png?pc=60pt)
-
-3. Go to [DockerHub Security](https://hub.docker.com/settings/security) to create new access token for Cloud9 workspace log in.
-4. Click on **New Access Token**.
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.24.createapp.png?pc=60pt)
-
-5. Input the **Access Token Description** as ```Access Token for FCJ Workshop```.
-6. Keep **Access Permissions** as default (with Read, Write, Delete permission).
-7. Then, click on **Generate**.
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.25.createapp.png?pc=60pt)
-
-8. Save your access token to use later.
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.26.createapp.png?pc=60pt)
-
-9. Back to Cloud9 terminal, log in to DockerHub.
-```
-docker login -u firstcloudjourneypcr
-```
-
-10. Enter your access token when be asked **Password**.
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.27.createapp.png?pc=60pt)
-
-
-To push your container image to DockerHub repository. The repository of container image must be match with repository name on DockerHub. 
-
-11. To do that, we will tag the container image.
-```
-docker tag fcj-management:v1 firstcloudjourneypcr/fcj-management:v1
-```
-
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.28.createapp.png?pc=60pt)
-
-12. List all images on your workspace.
+10. List existing images again.
 ```
 docker images
 ```
+![Dockerize application](../../images/2.prerequisites/2.5.createapp/3.2.9.createdockerfile.png?pc=90pt)
 
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.29.createapp.png?pc=60pt)
+The container image of your application had been built with version **v1** successfully.
 
-There is a new duplicated image with repository named **firstcloudjourneypcr/fcj-management**, tag is **v1**.
+### Create application v2
+1. Open **index.js** file and replace **res.json("Hello world from FCJ Workshop V1!")** to **res.json("Hello world from FCJ Workshop V2!")** at line 6.
+![Create application](../../images/2.prerequisites/2.5.createapp/3.2.10.createdockerfile.png?pc=90pt)
 
-13. Now, let push the container image to DockerHub.
+2. Start your application to see the result
+![Create application](../../images/2.prerequisites/2.5.createapp/3.2.11.createdockerfile.png?pc=90pt)
+
+3. Access to your application URL again to verify the result.
+![Create application](../../images/2.prerequisites/2.5.createapp/3.2.12.createdockerfile.png?pc=90pt)
+
+### Dockerize application v2
+1. Let build container image.
 ```
-docker push firstcloudjourneypcr/fcj-management:v1
+docker build -t fcj-application:v2 .
 ```
+![Create application](../../images/2.prerequisites/2.5.createapp/3.2.13.createdockerfile.png?pc=90pt)
 
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.30.createapp.png?pc=60pt)
+2. List existing images again.
+```
+docker images
+```
+![Create application](../../images/2.prerequisites/2.5.createapp/3.2.14.createdockerfile.png?pc=90pt)
 
-14. Go to DockerHub Repository **firstcloudjourneypcr/fcj-management** to see the result.
+### Push container image to DockerHub.
+1. Access and sign in to [DockerHub](https://hub.docker.com/) with your account.
+2. Let create a repository for this workshop.
+![Create application](../../images/2.prerequisites/2.5.createapp/3.2.15.createdockerfile.png?pc=90pt)
 
-![Create Application](../../images/2.prerequisites/2.5.createapp/2.5.31.createapp.png?pc=60pt)
+3. Input requested information:
++ **Name**: ```fcj-elbeks-workshop-basicapp```.
++ **Description**: ```Store container image for Amazon ELB with Amazon EKS Cluster Workshop```.
+Then click on **Create**.
+![Create application](../../images/2.prerequisites/2.5.createapp/3.2.16.createdockerfile.png?pc=90pt)
 
-There is a new pushed image on your DockerHub repository with tag is **v1**.
+
+Next, we will create an access token used to log in DockerHub from workspace instance.
+
+4. Click on your avatar (on the page top right side).
+
+5. Click on **My Account**.
+
+6. Click on **Security**.
+
+7. Finally, click on **New Access Token**.
+![Create application](../../images/2.prerequisites/2.5.createapp/3.2.17.createdockerfile.png?pc=90pt)
+
+8. Fill the **Access Token Description**.
+9. Click on **Generate**.
+![Create application](../../images/2.prerequisites/2.5.createapp/3.2.18.createdockerfile.png?pc=90pt)
+
+10. Store generated access token to use later.
+![Create application](../../images/2.prerequisites/2.5.createapp/3.2.19.createdockerfile.png?pc=90pt)
+
+11. Back to terminal of Cloud9. Enter this command to login and provide password when be requested.
+```
+docker login -u <REPLACE-YOUR-DOCKERHUB-USERNAME>
+```
+![Create application](../../images/2.prerequisites/2.5.createapp/3.2.20.createdockerfile.png?pc=90pt)
+
+
+To push container image to repository, Repository of your container image must match with repository format of DockerHub `<YOUR_USER_NAME>/<YOUR_REPOSITORY_NAME>`. So now we need to use `docker image tag command` to copy and correct repository format of your container image in workspace instance.
+
+12. Execute this command to tag your container image version v1 and v2.
+```
+docker image tag fcj-application:v1 firstcloudjourneypcr/fcj-elbeks-workshop-basicapp:v1
+docker image tag fcj-application:v2 firstcloudjourneypcr/fcj-elbeks-workshop-basicapp:v2
+```
+![Create application](../../images/2.prerequisites/2.5.createapp/3.2.21.createdockerfile.png?pc=90pt)
+
+
+13. List all your container images again.
+```
+docker images
+```
+![Create application](../../images/2.prerequisites/2.5.createapp/3.2.22.createdockerfile.png?pc=90pt)
+
+Now, there are 2 new container images is firstcloudjourneypcr/fcj-elbeks-workshop-basicapp with tag is v1 and firstcloudjourneypcr/fcj-elbeks-workshop-basicapp with tag is v2. Next, let push those container images to DockerHub.
+
+14. Execute this command to push your container image both version v1 and v2 to DockerHub.
+```
+docker push firstcloudjourneypcr/fcj-elbeks-workshop-basicapp:v1
+docker push firstcloudjourneypcr/fcj-elbeks-workshop-basicapp:v2
+```
+![Create application](../../images/2.prerequisites/2.5.createapp/3.2.23.createdockerfile.png?pc=90pt)
+
+15. Back to your Docker Hub repository to check the result. There is 2 container images had been pushed to.
+
+![Create application](../../images/2.prerequisites/2.5.createapp/3.2.24.createdockerfile.png?pc=90pt)

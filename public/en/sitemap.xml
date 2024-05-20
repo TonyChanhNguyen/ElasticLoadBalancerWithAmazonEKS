@@ -2,7 +2,17 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>/4-eksdbwithrds/4.1-createrdsdb/</loc>
+    <loc>/3-clbnlbwitheks/3.1-clbnlbwitheksmangednode/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/3-clbnlbwitheks/3.1-clbnlbwitheksmangednode/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/3-clbnlbwitheks/3.1-clbnlbwitheksmangednode/"
+                />
   </url><url>
     <loc>/2-prerequiste/2.1-createcloud9workspace/</loc>
     <xhtml:link
@@ -14,6 +24,18 @@
                 rel="alternate"
                 hreflang="en"
                 href="/2-prerequiste/2.1-createcloud9workspace/"
+                />
+  </url><url>
+    <loc>/5-dnsingresswitheks/5.1-deployexternaldns/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/5-dnsingresswitheks/5.1-deployexternaldns/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/5-dnsingresswitheks/5.1-deployexternaldns/"
                 />
   </url><url>
     <loc>/</loc>
@@ -28,16 +50,16 @@
                 href="/"
                 />
   </url><url>
-    <loc>/3-eksdbwithebs/3.1-installcsidriver/</loc>
+    <loc>/4-ingresswitheks/4.1-installlbc/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/3-eksdbwithebs/3.1-installcsidriver/"
+                href="/vi/4-ingresswitheks/4.1-installlbc/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/3-eksdbwithebs/3.1-installcsidriver/"
+                href="/4-ingresswitheks/4.1-installlbc/"
                 />
   </url><url>
     <loc>/1-introduce/</loc>
@@ -52,18 +74,40 @@
                 href="/1-introduce/"
                 />
   </url><url>
-    <loc>/4-eksdbwithrds/4.2-deployapp/</loc>
-  </url><url>
-    <loc>/3-eksdbwithebs/3.2-deploymysqlonebs/</loc>
+    <loc>/6-nlbwitheks/6.1-nlbwitheksmanagednode/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/3-eksdbwithebs/3.2-deploymysqlonebs/"
+                href="/vi/6-nlbwitheks/6.1-nlbwitheksmanagednode/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/3-eksdbwithebs/3.2-deploymysqlonebs/"
+                href="/6-nlbwitheks/6.1-nlbwitheksmanagednode/"
+                />
+  </url><url>
+    <loc>/3-clbnlbwitheks/3.2-clbnlbwitheksfargate/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/3-clbnlbwitheks/3.2-clbnlbwitheksfargate/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/3-clbnlbwitheks/3.2-clbnlbwitheksfargate/"
+                />
+  </url><url>
+    <loc>/4-ingresswitheks/4.2-basciingress/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/4-ingresswitheks/4.2-basciingress/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/4-ingresswitheks/4.2-basciingress/"
                 />
   </url><url>
     <loc>/2-prerequiste/2.2-modifyiamrole/</loc>
@@ -78,6 +122,18 @@
                 href="/2-prerequiste/2.2-modifyiamrole/"
                 />
   </url><url>
+    <loc>/6-nlbwitheks/6.2-nlbwitheksfargate/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/6-nlbwitheks/6.2-nlbwitheksfargate/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/6-nlbwitheks/6.2-nlbwitheksfargate/"
+                />
+  </url><url>
     <loc>/2-prerequiste/</loc>
     <xhtml:link
                 rel="alternate"
@@ -90,28 +146,40 @@
                 href="/2-prerequiste/"
                 />
   </url><url>
-    <loc>/3-eksdbwithebs/3.3-deployappdeployment/</loc>
+    <loc>/5-dnsingresswitheks/5.2-useexternaldnsasingress/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/3-eksdbwithebs/3.3-deployappdeployment/"
+                href="/vi/5-dnsingresswitheks/5.2-useexternaldnsasingress/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/3-eksdbwithebs/3.3-deployappdeployment/"
+                href="/5-dnsingresswitheks/5.2-useexternaldnsasingress/"
                 />
   </url><url>
-    <loc>/3-eksdbwithebs/</loc>
+    <loc>/3-clbnlbwitheks/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="vi"
-                href="/vi/3-eksdbwithebs/"
+                href="/vi/3-clbnlbwitheks/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="/3-eksdbwithebs/"
+                href="/3-clbnlbwitheks/"
+                />
+  </url><url>
+    <loc>/4-ingresswitheks/4.3-conextbasedroutingingress/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/4-ingresswitheks/4.3-conextbasedroutingingress/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/4-ingresswitheks/4.3-conextbasedroutingingress/"
                 />
   </url><url>
     <loc>/2-prerequiste/2.3-installation/</loc>
@@ -126,6 +194,30 @@
                 href="/2-prerequiste/2.3-installation/"
                 />
   </url><url>
+    <loc>/5-dnsingresswitheks/5.3-namebasedvirtualhostrouting/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/5-dnsingresswitheks/5.3-namebasedvirtualhostrouting/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/5-dnsingresswitheks/5.3-namebasedvirtualhostrouting/"
+                />
+  </url><url>
+    <loc>/4-ingresswitheks/4.4-ingresswithfargate/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/4-ingresswitheks/4.4-ingresswithfargate/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/4-ingresswitheks/4.4-ingresswithfargate/"
+                />
+  </url><url>
     <loc>/2-prerequiste/2.4-createekscluster/</loc>
     <xhtml:link
                 rel="alternate"
@@ -138,9 +230,41 @@
                 href="/2-prerequiste/2.4-createekscluster/"
                 />
   </url><url>
-    <loc>/4-eksdbwithrds/</loc>
+    <loc>/4-ingresswitheks/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/4-ingresswitheks/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/4-ingresswitheks/"
+                />
   </url><url>
-    <loc>/5-cleanup/</loc>
+    <loc>/5-dnsingresswitheks/5.4-sslandssldirect/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/5-dnsingresswitheks/5.4-sslandssldirect/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/5-dnsingresswitheks/5.4-sslandssldirect/"
+                />
+  </url><url>
+    <loc>/5-dnsingresswitheks/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/5-dnsingresswitheks/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/5-dnsingresswitheks/"
+                />
   </url><url>
     <loc>/2-prerequiste/2.5-createapplication/</loc>
     <xhtml:link
@@ -152,6 +276,42 @@
                 rel="alternate"
                 hreflang="en"
                 href="/2-prerequiste/2.5-createapplication/"
+                />
+  </url><url>
+    <loc>/5-dnsingresswitheks/5.5-targettypeip/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/5-dnsingresswitheks/5.5-targettypeip/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/5-dnsingresswitheks/5.5-targettypeip/"
+                />
+  </url><url>
+    <loc>/6-nlbwitheks/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/6-nlbwitheks/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/6-nlbwitheks/"
+                />
+  </url><url>
+    <loc>/7-cleanup/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="vi"
+                href="/vi/7-cleanup/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="/7-cleanup/"
                 />
   </url><url>
     <loc>/categories/</loc>

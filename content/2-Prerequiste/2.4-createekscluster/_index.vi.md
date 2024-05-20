@@ -11,7 +11,7 @@ pre : " <b> 2.4 </b> "
 ### Tạo Amazon EKS Cluster.
 1. Tại cửa sổ lệnh Cloud9, thực hiện câu lệnh này để tạo một Amazon EKS Cluster.
 ```
-eksctl create cluster --name=fcj-db-cluster --region=ap-southeast-1 --zones=ap-southeast-1a,ap-southeast-1b --without-nodegroup
+eksctl create cluster --name=fcj-elb-cluster --region=ap-southeast-1 --zones=ap-southeast-1a,ap-southeast-1b --without-nodegroup
 ```
 
 ![Tạo EKS Cluster](../../../images/2.prerequisites/2.4.createekscluster/2.4.1.createekscluster.png?pc=60pt)
@@ -25,7 +25,7 @@ eksctl get cluster --region=ap-southeast-1
 
 3. Cho phép **kubectl** giao tiếp với cluster của bạn bằng việc thêm chuỗi này vào tệp **kubectl config**.
 ```
-aws eks update-kubeconfig --region=ap-southeast-1 --name=fcj-db-cluster
+aws eks update-kubeconfig --region=ap-southeast-1 --name=fcj-elb-cluster
 ```
 ![Tạo EKS Cluster](../../../images/2.prerequisites/2.4.createekscluster/2.4.3.createekscluster.png?pc=60pt)
 
@@ -43,7 +43,7 @@ kubectl get svc
 IAM OpenID Connect (OIDC) Provider giúp sử dụng một số tiện ích của Amazon EKS, hoặc cho phép khối lượng công việc riêng lẻ Kubernetes có các quyền AWS Identity and Access Management (IAM) cụ thể.
 1. Tại cửa sổ lệnh Cloud9, thực hiện câu lệnh này để tạo và liên kết một OIDC Provider tới Amazon EKS Cluster.
 ```
-eksctl utils associate-iam-oidc-provider --cluster=fcj-db-cluster --region=ap-southeast-1 --approve
+eksctl utils associate-iam-oidc-provider --cluster=fcj-elb-cluster --region=ap-southeast-1 --approve
 ```
 ![Tạo EKS Cluster](../../../images/2.prerequisites/2.4.createekscluster/2.4.5.createekscluster.png?pc=60pt)
 
@@ -56,7 +56,7 @@ eksctl utils associate-iam-oidc-provider --cluster=fcj-db-cluster --region=ap-so
 ### Tạo Amazon EKS managed Node Group.
 1. Tại cửa sổ lệnh Cloud9, thực hiện câu lệnh này để tạo managed Node Group và liên kết nó tới EKS Cluster.
 ```
-eksctl create nodegroup --name=fcj-db-nodegroup --cluster=fcj-db-cluster --region=ap-southeast-1 --node-type=t3.medium --nodes=1
+eksctl create nodegroup --name=fcj-elb-nodegroup --cluster=fcj-elb-cluster --region=ap-southeast-1 --node-type=t3.medium --nodes=1 --node-private-networking  
 ```
 
 ![Tạo EKS Cluster](../../../images/2.prerequisites/2.4.createekscluster/2.4.7.createekscluster.png?pc=60pt)

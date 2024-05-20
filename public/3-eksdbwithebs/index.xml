@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Deploy database on Amazon EKS via EBS Volume on Deploy database on Amazon EKS</title>
-    <link>/3-eksdbwithebs/</link>
-    <description>Recent content in Deploy database on Amazon EKS via EBS Volume on Deploy database on Amazon EKS</description>
-    <generator>Hugo -- gohugo.io</generator><atom:link href="/3-eksdbwithebs/index.xml" rel="self" type="application/rss+xml" />
-  </channel>
-</rss>
